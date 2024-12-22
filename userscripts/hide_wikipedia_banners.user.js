@@ -1,6 +1,5 @@
 // ==UserScript==
 // @name         Hide banners on Wikipedia
-// @namespace    http://tampermonkey.net/
 // @version      2024-03-01
 // @description  Automatically click on the close button of the Wikipedia banners.
 // @author       Laurent FAVOLE
