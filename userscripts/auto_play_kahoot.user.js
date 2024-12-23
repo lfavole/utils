@@ -240,9 +240,9 @@
 
     var countdown_intv = setInterval(() => {
         if(!Countdowns[current_countdown]) {
-            console.log("All countdowns have been used, stopping");
-            clearInterval(countdown_intv);
-            return;
+            console.log("All countdowns have been used, restarting to 0");
+            current_countdown = 0;
+            changeCountdown();
         }
 
         if(countdown_timer == -1) {
