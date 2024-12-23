@@ -1,0 +1,1 @@
+i = 0; $$(".debug-target-list li").forEach(e => e.textContent.includes("colab.googleusercontent.com") || e.textContent.includes("github.dev") || e.textContent.includes("csb.app") || e.textContent.includes("forum") && setTimeout(() => e.querySelector(".qa-unregister-button").click(), i++ * 100))
