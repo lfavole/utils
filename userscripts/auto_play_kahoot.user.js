@@ -196,7 +196,7 @@
         },
     ];
 
-    function tryToClick(query) {
+    function tryToClick(query, callback) {
         var intv = setInterval(function() {
             // hide the sidebar during the ranking
             var element = document.querySelector(query);
@@ -204,6 +204,9 @@
             console.log("Clicking on %s", query);
             element.click();
             clearInterval(intv);
+            if(callback) {
+                callback();
+            }
         }, 500);
     }
 
@@ -216,12 +219,12 @@
         clearInterval(volume_intv);
     }, 500);
 
-    // hide the sidebar during the ranking
-    tryToClick('[class*="styles__SidebarButton"]');
-
     tryToClick('[data-functional-selector="claim-island-reward"]');
 
-    tryToClick('[class^="podium-sidebar-button__Button"]');
+    // hide the sidebar during the ranking
+    tryToClick('[class*="styles__SidebarButton"]', () => {
+        tryToClick('[data-functional-selector="show-podium-button"]');
+    });
 
     var current_countdown = 0;
     var countdown_element = null;
