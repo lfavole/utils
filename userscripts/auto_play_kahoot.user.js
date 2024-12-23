@@ -19,6 +19,7 @@
     line-height: 1em;
     width: 1.5em;
     text-align: center;
+    z-index: 1;
 }
 .countdown.move {
     color: transparent;
