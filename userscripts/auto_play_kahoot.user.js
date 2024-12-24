@@ -147,17 +147,18 @@
             timer: () => 3,
             init: () => {
                 tryToClick('[data-functional-selector="winter-mode-card"]');
+
+                tryToClick('[data-functional-selector="claim-island-reward"]');
+
+                // hide the sidebar during the ranking
+                tryToClick('[class*="styles__SidebarButton"]', () => {
+                    tryToClick('[data-functional-selector="show-podium-button"]');
+                });
             },
             container: () => document.querySelector('[class^="start-button__StartButtonWrapper"]'),
-            isActive: () => {
-                return (
-                    document.querySelector('[data-functional-selector="winter-mode-card"]')
-                    ? document.querySelector('[data-functional-selector^="start-winter-mode-button"]')
-                    : document.querySelector('[data-functional-selector^="start-classic-mode-button"]')
-                )
-            },
+            isActive: () => document.querySelector('[class^="start-button__ButtonWrapper"] [data-functional-selector$="-button"]'),
             handle: () => {
-                document.querySelector('[data-functional-selector^="start-"]').click();
+                document.querySelector('[class^="start-button__ButtonWrapper"] [data-functional-selector$="-button"]').click();
             },
         },
 
@@ -193,6 +194,7 @@
             handle: () => {
                 document.querySelector('[data-functional-selector="next-button"]').click();
             },
+            next: () => 1,
         },
     ];
 
@@ -219,13 +221,6 @@
         clearInterval(volume_intv);
     }, 500);
 
-    tryToClick('[data-functional-selector="claim-island-reward"]');
-
-    // hide the sidebar during the ranking
-    tryToClick('[class*="styles__SidebarButton"]', () => {
-        tryToClick('[data-functional-selector="show-podium-button"]');
-    });
-
     var current_countdown = 0;
     var countdown_element = null;
     var countdown_timer = Countdowns[current_countdown].timer();
@@ -238,7 +233,9 @@
         }
     }
 
-    var countdown_intv = setInterval(() => {
+    var defaultNext = (pos) => pos + 1;
+
+    setInterval(() => {
         if(!Countdowns[current_countdown]) {
             console.log("All countdowns have been used, restarting to 0");
             current_countdown = 0;
@@ -260,16 +257,17 @@
             return;
         }
 
-        if(!Countdowns[current_countdown].isActive() && Countdowns[current_countdown + 1] && Countdowns[current_countdown + 1].isActive()) {
-            current_countdown += 1;
-            changeCountdown();
-            console.log("Next countdown (%s) is active, switching to it", Countdowns[current_countdown].name);
-        }
-
         if(!Countdowns[current_countdown].isActive()) {
-            console.log("%s countdown is not active", Countdowns[current_countdown].name);
-            countdown_timer = Countdowns[current_countdown].timer();
-            return;
+            var newPos = (Countdowns[current_countdown].next || defaultNext)(current_countdown);
+            if(Countdowns[newPos] && Countdowns[newPos].isActive()) {
+                current_countdown = newPos;
+                changeCountdown();
+                console.log("Next countdown (%s) is active, switching to it", Countdowns[current_countdown].name);
+            } else {
+                console.log("%s countdown is not active", Countdowns[current_countdown].name);
+                countdown_timer = Countdowns[current_countdown].timer();
+                return;
+            }
         }
 
         if(Countdowns[current_countdown].status) {
@@ -301,14 +299,6 @@
         } else {
             console.log("%s countdown reached its end, running handler", Countdowns[current_countdown].name);
             Countdowns[current_countdown].handle();
-            if(Countdowns[current_countdown].goBack) {
-                current_countdown--;
-            } else if(Countdowns[current_countdown].goTo) {
-                current_countdown = Countdowns[current_countdown].goTo;
-            } else {
-                current_countdown++;
-            }
-            changeCountdown();
         }
     }, 1000);
 
