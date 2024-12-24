@@ -101,11 +101,11 @@
     padding: 0.0625em 0.25em;
 }
 
-[class^="top-bar__RightButtons"], [class^="content-block__ButtonWrapper"] {
+[class^="top-bar__RightButtons"]:has(.countdown), [class^="content-block__ButtonWrapper"]:has(.countdown) {
     flex-direction: row-reverse;
     align-items: flex-start;
 }
-[class^="top-bar__RightButtons"] > *, [class^="content-block__ButtonWrapper"] > * {
+[class^="top-bar__RightButtons"]:has(.countdown) > *, [class^="content-block__ButtonWrapper"]:has(.countdown) > * {
     margin: 0 !important;
     margin-left: 1em !important;
 }
