@@ -1,0 +1,968 @@
+{
+  "policies": {
+    "3rdparty": {
+      "Extensions": {
+        "uBlock0@raymondhill.net": {
+          "toAdd": {
+            "trustedSiteDirectives": [
+              "m6.fr",
+              "rmcbfmplay.com",
+              "tf1.fr"
+            ]
+          },
+          "toOverwrite": {
+            "filterLists": [
+              "user-filters",
+              "ublock-filters",
+              "ublock-badware",
+              "ublock-privacy",
+              "ublock-quick-fixes",
+              "ublock-unbreak",
+              "adguard-generic",
+              "adguard-mobile",
+              "easylist",
+              "adguard-spyware",
+              "adguard-spyware-url",
+              "block-lan",
+              "easyprivacy",
+              "urlhaus-1",
+              "curben-phishing",
+              "dpollock-0",
+              "plowe-0",
+              "fanboy-cookiemonster",
+              "ublock-cookies-easylist",
+              "adguard-cookies",
+              "ublock-cookies-adguard",
+              "fanboy-social",
+              "adguard-social",
+              "fanboy-thirdparty_social",
+              "easylist-chat",
+              "easylist-newsletters",
+              "easylist-notifications",
+              "easylist-annoyances",
+              "adguard-mobile-app-banners",
+              "adguard-other-annoyances",
+              "adguard-popup-overlays",
+              "adguard-widgets",
+              "ublock-annoyances",
+              "FRA-0",
+              "ITA-0",
+              "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt",
+              "https://raw.githubusercontent.com/liamengland1/miscfilters/master/antipaywall.txt",
+              "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/ClearURLs for uBo/clear_urls_uboified.txt",
+              "https://www.i-dont-care-about-cookies.eu/abp/",
+              "https://raw.githubusercontent.com/Rudloff/adblock-imokwithcookies/master/filters.txt",
+              "https://raw.githubusercontent.com/mchangrh/yt-neuter/main/yt-neuter.txt"
+            ]
+          }
+        }
+      }
+    },
+    "Authentication": {
+      "Locked": true,
+      "PrivateBrowsing": true
+    },
+    "AutofillAddressEnabled": false,
+    "AutofillCreditCardEnabled": false,
+    "AutoLaunchProtocolsFromOrigins": [
+      {
+        "allowed_origins": [
+          "https://t.me"
+        ],
+        "protocol": "tg"
+      }
+    ],
+    "Bookmarks": [
+      {
+        "Title": "Google",
+        "URL": "https://www.google.com"
+      },
+      {
+        "Title": "Google Maps",
+        "URL": "https://www.google.com/maps"
+      },
+      {
+        "Title": "YouTube",
+        "URL": "https://www.youtube.com"
+      },
+      {
+        "Title": "Google Drive",
+        "URL": "https://drive.google.com"
+      },
+      {
+        "Title": "Google Fonts",
+        "URL": "https://fonts.google.com"
+      },
+      {
+        "Title": "Google Messages",
+        "URL": "https://messages.google.com/web/"
+      },
+      {
+        "Title": "Gmail",
+        "URL": "https://mail.google.com"
+      },
+      {
+        "Title": "WhatsApp Web",
+        "URL": "https://web.whatsapp.com"
+      },
+      {
+        "Title": "Telegram Web",
+        "URL": "https://web.telegram.org/k/"
+      },
+      {
+        "Title": "GitHub",
+        "URL": "https://github.com"
+      },
+      {
+        "Title": "GitLab",
+        "URL": "https://gitlab.com"
+      },
+      {
+        "Title": "Codeberg",
+        "URL": "https://codeberg.org"
+      },
+      {
+        "Title": "Vercel",
+        "URL": "https://vercel.com"
+      },
+      {
+        "Title": "Wayback Machine",
+        "URL": "https://web.archive.org"
+      },
+      {
+        "Title": "Kahoot!",
+        "URL": "https://kahoot.it"
+      },
+      {
+        "Title": "Kahoot! Creator",
+        "URL": "https://create.kahoot.it"
+      },
+      {
+        "Title": "Wikimedia Commons",
+        "URL": "https://commons.wikimedia.org"
+      },
+      {
+        "Title": "DeepL",
+        "URL": "https://www.deepl.com"
+      },
+      {
+        "Title": "Strava",
+        "URL": "https://www.strava.com/login"
+      },
+      {
+        "Title": "Spotify",
+        "URL": "https://open.spotify.com"
+      },
+      {
+        "Title": "Deezer",
+        "URL": "https://www.deezer.com"
+      },
+      {
+        "Title": "Microsoft Copilot",
+        "URL": "https://copilot.microsoft.com"
+      },
+      {
+        "Title": "GeoGebra",
+        "URL": "https://geogebra.org/classic"
+      },
+      {
+        "Title": "AnkiWeb",
+        "URL": "https://ankiweb.net"
+      },
+      {
+        "Title": "AlternativeTo",
+        "URL": "https://alternativeto.net"
+      }
+    ],
+    "CaptivePortal": true,
+    "Certificates": {
+      "Install": ["/etc/firefox/policies/freebox-certificates.pem"]
+    },
+    "Cookies": {
+      "AcceptThirdParty": "from-visited",
+      "Default": true,
+      "Locked": true,
+      "RejectTracker": true
+    },
+    "DNSOverHTTPS": {
+      "Enabled": true,
+      "Locked": true,
+      "ProviderURL": "https://family.adguard-dns.com/dns-query"
+    },
+    "DefaultDownloadDirectory": "${home}/Téléchargements",
+    "DisableAppUpdate": true,
+    "DisableDefaultBrowserAgent": true,
+    "DisableFeedbackCommands": true,
+    "DisableFirefoxAccounts": true,
+    "DisableFirefoxStudies": true,
+    "DisablePocket": true,
+    "DisablePrivateBrowsing": true,
+    "DisableProfileImport": true,
+    "DisableProfileRefresh": true,
+    "DisableSetDesktopBackground": true,
+    "DisableTelemetry": true,
+    "DisplayMenuBar": "never",
+    "DontCheckDefaultBrowser": false,
+    "DownloadDirectory": "${home}/Téléchargements",
+    "EnableTrackingProtection": {
+      "Cryptomining": true,
+      "Fingerprinting": true,
+      "Value": true
+    },
+    "EncryptedMediaExtensions": {
+      "Enabled": true,
+      "Locked": true
+    },
+    "ExtensionSettings": {
+      "*": {
+        "installation_mode": "allowed"
+      },
+      "betterlyrics@boidu.dev": {
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/better-lyrics/latest.xpi",
+        "installation_mode": "force_installed",
+        "updates_disabled": false
+      },
+      "firefox-extension@deepl.com": {
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/deepl-translate/latest.xpi",
+        "installation_mode": "force_installed",
+        "updates_disabled": false
+      },
+      "firefox@tampermonkey.net": {
+        "blocked_install_message": "You can't use Tampermonkey on this device. Please use Violentmonkey instead.",
+        "installation_mode": "blocked",
+        "updates_disabled": true
+      },
+      "fr-dicollecte@dictionaries.addons.mozilla.org": {
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/dictionnaire-français1/latest.xpi",
+        "installation_mode": "force_installed",
+        "updates_disabled": false
+      },
+      "it-IT@dictionaries.addons.mozilla.org": {
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/dizionario-italiano/latest.xpi",
+        "installation_mode": "force_installed",
+        "updates_disabled": false
+      },
+      "jid1-ZAdIEUB7XOzOJw@jetpack": {
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/duckduckgo-for-firefox/latest.xpi",
+        "installation_mode": "force_installed",
+        "updates_disabled": false
+      },
+      "keepassxc-browser@keepassxc.org": {
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/keepassxc-browser/latest.xpi",
+        "installation_mode": "force_installed",
+        "updates_disabled": false
+      },
+      "langpack-fr@firefox.mozilla.org": {
+        "install_url": "https://releases.mozilla.org/pub/firefox/releases/135.0/linux-x86_64/xpi/fr.xpi",
+        "installation_mode": "force_installed",
+        "updates_disabled": false
+      },
+      "langpack-it@firefox.mozilla.org": {
+        "install_url": "https://releases.mozilla.org/pub/firefox/releases/135.0/linux-x86_64/xpi/it.xpi",
+        "installation_mode": "force_installed",
+        "updates_disabled": false
+      },
+      "newtab@lfavole.github.io": {
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/lfnewtab/latest.xpi",
+        "installation_mode": "force_installed",
+        "updates_disabled": false
+      },
+      "sponsorBlocker@ajay.app": {
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi",
+        "installation_mode": "force_installed",
+        "updates_disabled": false
+      },
+      "uBlock0@raymondhill.net": {
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi",
+        "installation_mode": "force_installed",
+        "updates_disabled": false
+      },
+      "{aecec67f-0d10-4fa7-b7c7-609a2db280cf}": {
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/violentmonkey/latest.xpi",
+        "installation_mode": "force_installed",
+        "updates_disabled": false
+      },
+      "{b5501fd1-7084-45c5-9aa6-567c2fcf5dc6}": {
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ruffle_rs/latest.xpi",
+        "installation_mode": "force_installed",
+        "updates_disabled": false
+      }
+    },
+    "ExtensionUpdate": true,
+    "FirefoxHome": {
+      "Highlights": false,
+      "Pocket": false,
+      "Search": true,
+      "Snippets": false,
+      "TopSites": false
+    },
+    "FirefoxSuggest": {
+      "ImproveSuggest": false,
+      "Locked": true,
+      "SponsoredSuggestions": false,
+      "WebSuggestions": false
+    },
+    "Handlers": {
+      "mimeTypes": {
+        "application/msword": {
+          "action": "useSystemDefault",
+          "ask": true
+        },
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": {
+          "action": "useSystemDefault",
+          "ask": true
+        },
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.template": {
+          "action": "useSystemDefault",
+          "ask": true
+        },
+        "application/vnd.ms-excel": {
+          "action": "useSystemDefault",
+          "ask": true
+        },
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": {
+          "action": "useSystemDefault",
+          "ask": true
+        },
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.template": {
+          "action": "useSystemDefault",
+          "ask": true
+        },
+        "application/vnd.ms-powerpoint": {
+          "action": "useSystemDefault",
+          "ask": true
+        },
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation": {
+          "action": "useSystemDefault",
+          "ask": true
+        },
+        "application/vnd.openxmlformats-officedocument.presentationml.template": {
+          "action": "useSystemDefault",
+          "ask": true
+        },
+        "application/vnd.openxmlformats-officedocument.presentationml.slideshow": {
+          "action": "useSystemDefault",
+          "ask": true
+        },
+        "application/vnd.ms-access": {
+          "action": "useSystemDefault",
+          "ask": true
+        }
+      },
+      "schemes": {
+        "mailto": {
+          "action": "useSystemDefault",
+          "ask": false
+        }
+      }
+    },
+    "Homepage": {
+      "Locked": true,
+      "StartPage": "previous-session"
+    },
+    "HttpsOnlyMode": "force_enabled",
+    "NetworkPrediction": true,
+    "NewTabPage": false,
+    "NoDefaultBookmarks": true,
+    "OfferToSaveLogins": false,
+    "OverrideFirstRunPage": "",
+    "OverridePostUpdatePage": "",
+    "PasswordManagerEnabled": false,
+    "PDFjs": {
+      "EnablePermissions": false,
+      "Enabled": true
+    },
+    "Permissions": {
+      "Autoplay": {
+        "Allow": ["https://play.kahoot.it", "https://www.youtube.com"],
+        "Locked": true
+      }
+    },
+    "PictureInPicture": {
+      "Enabled": true,
+      "Locked": true
+    },
+    "PopupBlocking": {
+      "Allow": [
+        "https://create.kahoot.it"
+      ],
+      "Default": true
+    },
+    "PostQuantumKeyAgreementEnabled": true,
+    "Preferences": {
+      "accessibility.force_disabled": {
+        "Status": "locked",
+        "Value": true
+      },
+      "accessibility.browsewithcaret": {
+        "Status": "locked",
+        "Value": false
+      },
+      "accessibility.typeaheadfind": {
+        "Status": "locked",
+        "Value": false
+      },
+      "alerts.showFavicons": {
+        "Status": "locked",
+        "Value": true
+      },
+      "alerts.useSystemBackend": {
+        "Status": "locked",
+        "Value": true
+      },
+      "app.update.background.enabled": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.aboutConfig.showWarning": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.active_color": {
+        "Status": "locked",
+        "Value": "#EE0000"
+      },
+      "browser.active_color.dark": {
+        "Status": "locked",
+        "Value": "#FF6666"
+      },
+      "browser.anchor_color": {
+        "Status": "locked",
+        "Value": "#0000EE"
+      },
+      "browser.anchor_color.dark": {
+        "Status": "locked",
+        "Value": "#8C8CFF"
+      },
+      "browser.cache.disk.capacity": {
+        "Status": "locked",
+        "Value": -1
+      },
+      "browser.cache.disk.enable": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.cache.disk.smart_size.enabled": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.cache.memory.capacity": {
+        "Status": "locked",
+        "Value": -1
+      },
+      "browser.cache.memory.enable": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.cache.memory.max_entry_size": {
+        "Status": "locked",
+        "Value": 5120
+      },
+      "browser.cache.use_new_backend": {
+        "Status": "locked",
+        "Value": 1
+      },
+      "browser.crashReports.unsubmittedCheck.autoSubmit2": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.ctrlTab.sortByRecentlyUsed": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.display.background_color": {
+        "Status": "locked",
+        "Value": "#FFFFFF"
+      },
+      "browser.display.document_color_use": {
+        "Status": "locked",
+        "Value": 1
+      },
+      "browser.display.foreground_color": {
+        "Status": "locked",
+        "Value": "#000000"
+      },
+      "browser.display.use_system_colors": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.download.always_ask_before_handling_new_types": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.download.lastDir": {
+        "Status": "locked",
+        "Value": ""
+      },
+      "browser.download.manager.showAlertOnComplete": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.formfill.enable": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.link.open_newwindow": {
+        "Status": "locked",
+        "Value": 3
+      },
+      "browser.messaging-system.whatsNewPanel.enabled": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.newtabpage.activity-stream.feeds.section.highlights": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.newtabpage.activity-stream.section.highlights.includeBookmarks": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.newtabpage.activity-stream.section.highlights.includeDownloads": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.newtabpage.activity-stream.section.highlights.includeVisited": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.newtabpage.activity-stream.feeds.section.topstories": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.newtabpage.activity-stream.feeds.topsites": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.newtabpage.activity-stream.section.highlights.rows": {
+        "Status": "locked",
+        "Value": 1
+      },
+      "browser.newtabpage.activity-stream.section.topstories.rows": {
+        "Status": "locked",
+        "Value": 1
+      },
+      "browser.newtabpage.activity-stream.showSearch": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.newtabpage.activity-stream.showSponsored": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.newtabpage.activity-stream.showSponsoredTopSites": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.newtabpage.activity-stream.topSitesRows": {
+        "Status": "locked",
+        "Value": 1
+      },
+      "browser.preferences.defaultPerformanceSettings.enabled": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.quitShortcut.disabled": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.safebrowsing.downloads.enabled": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.safebrowsing.downloads.remote.block_dangerous": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.safebrowsing.downloads.remote.block_dangerous_host": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.safebrowsing.downloads.remote.block_potentially_unwanted": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.safebrowsing.downloads.remote.block_uncommon": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.safebrowsing.malware.enabled": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.safebrowsing.phishing.enabled": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.search.openintab": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.search.widget.inNavBar": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.search.separatePrivateDefault": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.search.suggest.enabled": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.search.suggest.enabled.private": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.search.update": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.sessionhistory.max_entries": {
+        "Status": "locked",
+        "Value": 50
+      },
+      "browser.sessionhistory.max_total_viewers": {
+        "Status": "locked",
+        "Value": 0
+      },
+      "browser.tabs.hoverPreview.enabled": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.tabs.hoverPreview.showThumbnails": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.tabs.inTitlebar": {
+        "Status": "locked",
+        "Value": 1
+      },
+      "browser.tabs.loadInBackground": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.tabs.remote.warmup.enabled": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.tabs.warnOnClose": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.taskbar.previews.enable": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.toolbars.bookmarks.visibility": {
+        "Status": "locked",
+        "Value": "never"
+      },
+      "browser.translations.enable": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.translations.automaticallyPopup": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.translations.neverTranslateLanguages": {
+        "Status": "locked",
+        "Value": "en"
+      },
+      "browser.turbo.enabled": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.underline_anchors": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.urlbar.showSearchSuggestionsFirst": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.urlbar.showSearchTerms.enabled": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.urlbar.suggest.bestmatch": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.urlbar.suggest.bookmark": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.urlbar.suggest.calculator": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.urlbar.suggest.engines": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.urlbar.suggest.history": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.urlbar.suggest.openpage": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.urlbar.suggest.recentsearches": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.urlbar.suggest.topsites": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.visited_color": {
+        "Status": "locked",
+        "Value": "#551A8B"
+      },
+      "browser.visited_color.dark": {
+        "Status": "locked",
+        "Value": "#FFADFF"
+      },
+      "browser.warnOnQuitShortcut": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.zoom.full": {
+        "Status": "locked",
+        "Value": true
+      },
+      "datareporting.policy.dataSubmissionPolicyBypassNotification": {
+        "Status": "locked",
+        "Value": true
+      },
+      "dom.disable_window_flip": {
+        "Status": "locked",
+        "Value": true
+      },
+      "dom.disable_window_move_resize": {
+        "Status": "locked",
+        "Value": true
+      },
+      "dom.forms.autocomplete.formautofill": {
+        "Status": "locked",
+        "Value": true
+      },
+      "dom.image-lazy-loading.enabled": {
+        "Status": "locked",
+        "Value": true
+      },
+      "dom.security.https_only_mode_pbm": {
+        "Status": "locked",
+        "Value": false
+      },
+      "extensions.formautofill.reauth.enabled": {
+        "Status": "locked",
+        "Value": true
+      },
+      "extensions.translations.disabled": {
+        "Status": "locked",
+        "Value": false
+      },
+      "extensions.screenshots.disabled": {
+        "Status": "locked",
+        "Value": false
+      },
+      "extensions.update.autoUpdateDefault": {
+        "Status": "locked",
+        "Value": true
+      },
+      "extensions.update.enabled": {
+        "Status": "locked",
+        "Value": true
+      },
+      "general.autoScroll": {
+        "Status": "locked",
+        "Value": true
+      },
+      "general.smoothScroll": {
+        "Status": "locked",
+        "Value": true
+      },
+      "intl.regional_prefs.use_os_locales": {
+        "Status": "locked",
+        "Value": true
+      },
+      "layout.css.always_underline_links": {
+        "Status": "locked",
+        "Value": false
+      },
+      "layout.spellcheckDefault": {
+        "Status": "locked",
+        "Value": 1
+      },
+      "media.gmp-gmpopenh264.enabled": {
+        "Status": "locked",
+        "Value": true
+      },
+      "media.hardwaremediakeys.enabled": {
+        "Status": "locked",
+        "Value": true
+      },
+      "media.videocontrols.picture-in-picture.enable-when-switching-tabs.enabled": {
+        "Status": "locked",
+        "Value": true
+      },
+      "media.videocontrols.picture-in-picture.video-toggle.enabled": {
+        "Status": "locked",
+        "Value": true
+      },
+      "network.captive-portal-service.enabled": {
+        "Status": "locked",
+        "Value": false
+      },
+      "network.cookie.cookieBehavior": {
+        "Status": "locked",
+        "Value": 1
+      },
+      "network.dns.disableIPv6": {
+        "Status": "locked",
+        "Value": false
+      },
+      "network.dns.disablePrefetchFromHTTPS": {
+        "Status": "locked",
+        "Value": false
+      },
+      "network.http.pipelining": {
+        "Status": "locked",
+        "Value": true
+      },
+      "network.http.pipelining.maxrequests": {
+        "Status": "locked",
+        "Value": 100
+      },
+      "network.http.pipelining.ssl": {
+        "Status": "locked",
+        "Value": true
+      },
+      "network.http.max-connections": {
+        "Status": "locked",
+        "Value": 900
+      },
+      "network.http.proxy.pipelining": {
+        "Status": "locked",
+        "Value": true
+      },
+      "network.IDN_show_punycode": {
+        "Status": "locked",
+        "Value": true
+      },
+      "network.predictor.enable-prefetch": {
+        "Status": "locked",
+        "Value": true
+      },
+      "network.prefetch-next": {
+        "Status": "locked",
+        "Value": false
+      },
+      "network.proxy.no_proxies_on": {
+        "Status": "locked",
+        "Value": ""
+      },
+      "network.proxy.type": {
+        "Status": "locked",
+        "Value": 5
+      },
+      "places.history.enabled": {
+        "Status": "locked",
+        "Value": true
+      },
+      "places.history.floodingPrevention.enabled": {
+        "Status": "locked",
+        "Value": true
+      },
+      "places.history.expiration.max_pages": {
+        "Status": "locked",
+        "Value": 20000
+      },
+      "print.prefer_system_dialog": {
+        "Status": "locked",
+        "Value": false
+      },
+      "security.insecure_connection_text.enabled": {
+        "Status": "locked",
+        "Value": true
+      },
+      "security.insecure_connection_text.pbmode.enabled": {
+        "Status": "locked",
+        "Value": true
+      },
+      "security.OCSP.enabled": {
+        "Status": "locked",
+        "Value": 1
+      },
+      "signon.generation.enabled": {
+        "Status": "locked",
+        "Value": false
+      },
+      "signon.firefoxRelay.feature": {
+        "Status": "locked",
+        "Value": "disabled"
+      },
+      "signon.management.page.breach-alerts.enabled": {
+        "Status": "locked",
+        "Value": false
+      },
+      "security.ssl.errorReporting.enabled": {
+        "Status": "locked",
+        "Value": false
+      },
+      "ui.key.menuAccessKeyFocuses": {
+        "Status": "locked",
+        "Value": true
+      },
+      "widget.gtk.overlay-scrollbars.enabled": {
+        "Status": "locked",
+        "Value": true
+      }
+    },
+    "PrimaryPassword": false,
+    "PromptForDownloadLocation": false,
+    "Proxy": {
+      "AutoLogin": true,
+      "Locked": true,
+      "Mode": "system",
+      "SOCKSVersion": 4,
+      "UseHTTPProxyForAllProtocols": true,
+      "UseProxyForDNS": false
+    },
+    "RequestedLocales": [
+      "fr",
+      "it"
+    ],
+    "SanitizeOnShutdown": {
+      "Cache": false,
+      "Cookies": false,
+      "Downloads": false,
+      "FormData": false,
+      "History": false,
+      "OfflineApps": false,
+      "Sessions": false,
+      "SiteSettings": false
+    },
+    "SearchBar": "unified",
+    "SearchSuggestEnabled": true,
+    "ShowHomeButton": false,
+    "SupportMenu": {
+      "AccessKey": "L",
+      "Title": "Contacter Laurent",
+      "URL": "https://lfavole.github.io"
+    },
+    "TranslateEnabled": true,
+    "UserMessaging": {
+      "ExtensionRecommendations": false,
+      "FeatureRecommendations": false,
+      "Locked": true,
+      "SkipOnboarding": false,
+      "UrlbarInterventions": false,
+      "WhatsNew": false
+    }
+  }
+}
