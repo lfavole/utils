@@ -29,4 +29,24 @@
         check_for_next_page_buttons();
     }, {threshold: 0.5});
     setInterval(check_for_next_page_buttons, 500);
+
+    var count = 5;
+    var intv = setInterval(function() {
+        if(count <= 0) {
+            clearInterval(intv);
+            return;
+        }
+        var error_link = document.querySelector(".PagerError a");
+        if(error_link) {
+            error_link.click();
+            count = 0;
+            return;
+        }
+        var buttons = document.querySelectorAll('button[data-testid="buttonShowMore"]');
+        if(!buttons.length) return;
+        for(var button of buttons) {
+            button.click();
+        }
+        count -= 1;
+    }, 3000);
 })();

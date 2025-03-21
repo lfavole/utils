@@ -56,7 +56,16 @@
 
     var intv = setInterval(function() {
         var banner = document.querySelector('aside[data-functional-selector="top-strip"]');
-        if(!banner || !banner.innerText.includes("Offer")) return;
+        if(!banner) return;
+        var keywords = ["kahoot!+", "offer", "/mo"];
+        var found = false;
+        for(var keyword of keywords) {
+            if(banner.textContent.includes(keyword)) {
+                found = true;
+                break;
+            }
+        }
+        if(!found) return;
 
         var close_button = banner.querySelector('button[data-functional-selector="top-strip__close-button__icon-button"]');
         if(!close_button) return;
