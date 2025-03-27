@@ -124,7 +124,12 @@ matches:
 - trigger: age
   replace: âge
   propagate_case: true
-  left_word: true
+  word: true
+
+- trigger: ages
+  replace: âges
+  propagate_case: true
+  word: true
 
 - trigger: agé
   replace: âgé
@@ -187,7 +192,10 @@ matches:
   propagate_case: true
   left_word: true
 
-- trigger: acqueu
+- triggers:
+  - acqueu
+  - acqeu
+  - aqeu
   replace: aqueu
   propagate_case: true
   left_word: true
@@ -221,7 +229,12 @@ matches:
 - trigger: atteind
   replace: atteint
   propagate_case: true
-  left_word: true
+  word: true
+
+- trigger: atteinds
+  replace: atteints
+  propagate_case: true
+  word: true
 
 - triggers:
   - au delâ
@@ -313,7 +326,7 @@ matches:
   left_word: true
 
 - trigger: blizard
-  replace: blizard
+  replace: blizzard
   propagate_case: true
   left_word: true
 

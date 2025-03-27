@@ -1,2 +1,4 @@
 auto_restart: true
+backspace_limit: 50
 emulate_alt_codes: true
+show_notifications: false

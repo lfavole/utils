@@ -1093,15 +1093,6 @@ matches:
   propagate_case: true
   word: true
 
-- trigger: .md
-  replace: .md
-  propagate_case: true
-
-- trigger: md
-  replace: milliard
-  propagate_case: true
-  word: true
-
 - trigger: .rs
   replace: .rs
   propagate_case: true
@@ -1719,5 +1710,95 @@ matches:
 
 - trigger: mdes
   replace: mondes
+  propagate_case: true
+  word: true
+
+- regex: (?P<n>[Nn])(?P<e>[Ee]) (?P<match>(?:\d{4,}|\d{2})\W)
+  replace: "{{e}}{{n}} {{match}}"
+
+- trigger: éq
+  replace: équation
+  propagate_case: true
+  word: true
+
+- trigger: l'éq
+  replace: l'équation
+  propagate_case: true
+  word: true
+
+- trigger: éqs
+  replace: équations
+  propagate_case: true
+  word: true
+
+- trigger: équa
+  replace: équation
+  propagate_case: true
+  word: true
+
+- trigger: l'équa
+  replace: l'équation
+  propagate_case: true
+  word: true
+
+- trigger: équas
+  replace: équations
+  propagate_case: true
+  word: true
+
+- trigger: l'ed
+  replace: l'équation différentielle
+  propagate_case: true
+  word: true
+
+- trigger: cve
+  replace: ce
+  propagate_case: true
+  right_word: true
+
+- trigger: cves
+  replace: ces
+  propagate_case: true
+  right_word: true
+
+- trigger: NN
+  replace: ℕ
+  propagate_case: true
+  word: true
+
+- trigger: RR
+  replace: ℝ
+  propagate_case: true
+  word: true
+
+- trigger: \forall
+  replace: ∀
+  propagate_case: true
+  word: true
+
+- trigger: \in
+  replace: ∈
+  propagate_case: true
+  word: true
+
+- trigger: C inr
+  replace: C est une constante réelle
+  propagate_case: true
+  word: true
+
+- trigger: une sol
+  replace: une solution
+  propagate_case: true
+  word: true
+
+- trigger: la sol
+  replace: la solution
+  propagate_case: true
+  word: true
+
+- triggers:
+  - les sol
+  - les sols
+  replace: les solutions
   propagate_case: true
   word: true
