@@ -1,0 +1,150 @@
+# Main options
+title-text: ""
+desktop-image: "background.png"
+desktop-color: "#424242"
+terminal-font: "Terminus Regular 14"
+terminal-box: "terminal_box_*.png"
+terminal-left: "0"
+terminal-top: "0"
+terminal-width: "100%"
+terminal-height: "100%"
+terminal-border: "0"
+
++ image {
+  left = 10%
+  top = 5%
+  width = 96
+  height = 96
+  file = /boot/grub/themes/lfavole/logo_circle.png
+}
+
++ label {
+  left = 10%+120
+  top = 5%
+  align = "left"
+  text = "Bienvenue sur mon ordinateur !"
+  color = "#ffffff"
+  font = "Ubuntu Regular 64"
+}
+
++ label {
+  left = 5%
+  top = 20%
+  width = 80%
+  align = "center"
+  text = "Choisissez le système d'exploitation à démarrer :"
+  color = "#ffffff"
+  font = "Ubuntu Bold 48"
+}
+
++ progress_bar {
+  left = 5%
+  width = 80%
+  top = 30%
+  align = "center"
+  id = "__timeout__"
+  text = "@TIMEOUT_NOTIFICATION_LONG@"
+  text_color = "#9b0000"
+  fg_color = "#cccccc"
+  border_color = "#cccccc"
+  font = "Ubuntu Regular 36"
+}
+
++ boot_menu {
+  left = 5%
+  width = 80%
+  top = 40%
+  height = 65%
+  item_font = "Ubuntu Regular 36"
+  item_color = "#cccccc"
+  selected_item_color = "#ffffff"
+  icon_width = 64
+  icon_height = 64
+  item_icon_space = 20
+  item_height = 64
+  item_padding = 8
+  item_spacing = 16
+  selected_item_pixmap_style = "select_*.png"
+}
+
++ label {
+  left = 85%
+  top = 40%
+  align = "left"
+  text = "Par défaut"
+  color = "#cccccc"
+  font = "Ubuntu Regular 36"
+}
+
++ label {
+  left = 85%
+  top = 40%+36
+  align = "left"
+  text = "Linux démarre"
+  color = "#cccccc"
+  font = "Ubuntu Regular 36"
+}
+
++ label {
+  left = 85%
+  top = 40%+90
+  align = "left"
+  text = "Choisir le"
+  color = "#cccccc"
+  font = "Ubuntu Regular 36"
+}
+
++ label {
+  left = 85%
+  top = 40%+126
+  align = "left"
+  text = "système"
+  color = "#cccccc"
+  font = "Ubuntu Regular 36"
+}
+
++ label {
+  left = 85%+150
+  top = 40%+96
+  align = "left"
+  text = "⬆⬇"
+  color = "#cccccc"
+  font = "Ubuntu Regular 64"
+}
+
++ label {
+  left = 85%
+  top = 40%+180
+  align = "left"
+  text = "puis le"
+  color = "#cccccc"
+  font = "Ubuntu Regular 36"
+}
+
++ label {
+  left = 85%
+  top = 40%+216
+  align = "left"
+  text = "démarrer"
+  color = "#cccccc"
+  font = "Ubuntu Regular 36"
+}
+
++ label {
+  left = 85%+160
+  top = 40%+186
+  align = "left"
+  text = "↲"
+  color = "#cccccc"
+  font = "Ubuntu Regular 64"
+}
+
++ label {
+  left = 10%
+  width = 80%
+  top = 95%
+  align = "center"
+  text = "@KEYMAP_MIDDLE@"
+  color = "#cccccc"
+  font = "Ubuntu Regular 16"
+}
