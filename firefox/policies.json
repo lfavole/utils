@@ -526,6 +526,18 @@
         "Status": "locked",
         "Value": false
       },
+      "browser.newtabpage.activity-stream.newtabWallpapers.wallpaper": {
+        "Status": "locked",
+        "Value": ""
+      },
+      "browser.newtabpage.activity-stream.newtabWallpapers.wallpaper-dark": {
+        "Status": "locked",
+        "Value": ""
+      },
+      "browser.newtabpage.activity-stream.newtabWallpapers.wallpaper-light": {
+        "Status": "locked",
+        "Value": ""
+      },
       "browser.newtabpage.activity-stream.feeds.section.topstories": {
         "Status": "locked",
         "Value": false
