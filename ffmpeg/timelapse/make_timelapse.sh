@@ -60,7 +60,7 @@ french_date=$(date -d "$date" +"%-d %B %Y")
 # Check if the day is the 1st and needs the "er" suffix
 day=$(date -d "$date" +"%-d")
 if [ "$day" -eq 1 ]; then
-  french_date="1er $(date -d "$french_date" +"%B %Y")"
+  french_date="1er $(date -d "$date" +"%B %Y")"
 fi
 echo "Formatted date: $french_date"
 
