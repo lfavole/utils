@@ -1,0 +1,5 @@
+filter_class: "[Aa]nki"
+filter_title: LibreOffice|Word
+
+extra_includes:
+- ../match/_rich_superscript.yml

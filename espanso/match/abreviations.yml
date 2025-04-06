@@ -1,2353 +1,1804 @@
 matches:
 
-- trigger: a disparue
-  replace: a disparu
-  propagate_case: true
+- trigger: :logo
+  image_path: /home/lfavole/Documents/Personnel/logo.jpg
 
-- trigger: a grandit
-  replace: a grandi
-  propagate_case: true
+- trigger: "!="
+  replace: ≠
 
-- trigger: a partir
-  replace: à partir
-  propagate_case: true
-
-- trigger: A partir
-  replace: À partir
-  propagate_case: true
-
-- trigger: a permi
-  replace: a permis
-  propagate_case: true
-
-- trigger: a réagit
-  replace: a réagi
-  propagate_case: true
-
-- triggers:
-  - aberation
-  - abération
-  - abêration
-  - abèration
-  - abberation
-  - abbération
-  - abbêration
-  - abbèration
-  - abérration
-  - abêrration
-  - abèrration
-  - abberration
-  - abbérration
-  - abbêrration
-  - abbèrration
-  replace: aberration
+- trigger: système prods
+  replace: systèmes productifs
   propagate_case: true
   word: true
 
-- triggers:
-  - aborigéne
-  - aborigene
-  - aborigêne
-  - aborigëne
-  - arborigéne
-  - arborigene
-  - arborigène
-  - arborigêne
-  - arborigëne
-  replace: aborigène
+- trigger: systèmes prod
+  replace: systèmes productifs
   propagate_case: true
   word: true
 
-- trigger: abcisse
-  replace: abscisse
+- trigger: systèmes prods
+  replace: systèmes productifs
+  propagate_case: true
+  word: true
+
+- trigger: pb
+  replace: problème
+  propagate_case: true
+  word: true
+
+- trigger: pbs
+  replace: problèmes
+  propagate_case: true
+  word: true
+
+- trigger: (evt
+  replace: (evt
+  propagate_case: true
+
+- trigger: evt
+  replace: événement
+  propagate_case: true
+  word: true
+
+- trigger: evts
+  replace: événements
+  propagate_case: true
+  word: true
+
+- trigger: env
+  replace: environnement
+  propagate_case: true
+  word: true
+
+- trigger: envs
+  replace: environnements
+  propagate_case: true
+  word: true
+
+- trigger: lib.
+  replace: lib.
   propagate_case: true
   left_word: true
 
-- trigger: absorbtion
-  replace: absorption
+- trigger: lib
+  replace: liberté
+  propagate_case: true
+  word: true
+
+- trigger: libs
+  replace: libertés
+  propagate_case: true
+  word: true
+
+- trigger: repr(
+  replace: repr(
   propagate_case: true
   left_word: true
 
-- triggers:
-  - academie
-  - acadèmie
-  - acadêmie
-  - acadëmie
-  - accadémie
-  - accademie
-  - accadèmie
-  - accadêmie
-  - accadëmie
-  replace: académie
+- trigger: repr
+  replace: représentation
   propagate_case: true
   word: true
 
-- trigger: accacia
-  replace: acacia
+- trigger: reprs
+  replace: représentations
   propagate_case: true
   word: true
 
-- trigger: acalmie
-  replace: accalmie
+- trigger: dasn
+  replace: dans
   propagate_case: true
   word: true
 
-- triggers:
-  - accés
-  - acces
-  - accês
-  - accës
-  replace: accès
+- trigger: tets
+  replace: test
   propagate_case: true
   word: true
 
-- trigger: accoustique
-  replace: acoustique
-  propagate_case: true
-  left_word: true
-
-- trigger: aquisition
-  replace: acquisition
-  propagate_case: true
-  left_word: true
-
-- trigger: addresse
-  replace: adresse
-  propagate_case: true
-  left_word: true
-
-- trigger: adiction
-  replace: addiction
-  propagate_case: true
-  left_word: true
-
-- trigger: age
-  replace: âge
-  propagate_case: true
-  word: true
-
-- trigger: ages
-  replace: âges
-  propagate_case: true
-  word: true
-
-- trigger: agé
-  replace: âgé
-  propagate_case: true
-  left_word: true
-
-- trigger: aggio
-  replace: agio
-  propagate_case: true
-  word: true
-
-- trigger: aigü
-  replace: aigu
+- trigger: tetss
+  replace: tests
   propagate_case: true
   word: true
 
 - triggers:
-  - alcol
-  - alcole
-  - alcoole
-  replace: alcool
+  - et ou
+  - ou et
+  - ou/et
+  replace: et/ou
   propagate_case: true
   word: true
 
-- trigger: ambigü
-  replace: ambigu
-  propagate_case: true
-  left_word: true
-
-- trigger: americain
-  replace: américain
-  propagate_case: true
-  left_word: true
-
-- trigger: annee
-  replace: année
-  propagate_case: true
-  left_word: true
-
-- trigger: anotation
-  replace: annotation
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - antecedent
-  - antecédent
-  - antecèdent
-  - antécedent
-  - antécèdent
-  - antècedent
-  - antècédent
-  - antècèdent
-  replace: antécédent
+- trigger: c'est à dire
+  replace: c'est-à-dire
   propagate_case: true
   word: true
 
-- trigger: antologie
-  replace: anthologie
+- trigger: fait il
+  replace: fait-il
   propagate_case: true
-  left_word: true
+  word: true
 
-- triggers:
-  - acqueu
-  - acqeu
-  - aqeu
-  replace: aqueu
+- trigger: tps
+  replace: temps
   propagate_case: true
-  left_word: true
+  word: true
 
-- trigger: arrété
-  replace: arrêté
+- trigger: tjs
+  replace: toujours
   propagate_case: true
-  left_word: true
+  word: true
 
-- trigger: Asterix
-  replace: Astérix
+- trigger: dvt
+  replace: développement
+  propagate_case: true
+  word: true
+
+- trigger: dvts
+  replace: développements
+  propagate_case: true
+  word: true
+
+- trigger: qqn
+  replace: quelqu'un
   propagate_case: true
   word: true
 
 - triggers:
-  - sphere
-  - sphére
-  - sphêre
-  - sphëre
-  replace: sphère
+  - qqc
+  - qqch
+  replace: quelque chose
+  propagate_case: true
+  word: true
+
+- trigger: gvt
+  replace: gouvernement
+  propagate_case: true
+  left_word: true
+
+- trigger: csq
+  replace: conséquence
+  propagate_case: true
+  left_word: true
+
+- trigger: ds
+  replace: dans
+  propagate_case: true
+  word: true
+
+- trigger: ns
+  replace: nous
+  propagate_case: true
+  word: true
+
+- trigger: tt
+  replace: tout
+  propagate_case: true
+  word: true
+
+- trigger: tte
+  replace: toute
+  propagate_case: true
+  word: true
+
+- trigger: ts
+  replace: tous
+  propagate_case: true
+  word: true
+
+- trigger: ttes
+  replace: toutes
+  propagate_case: true
+  word: true
+
+- trigger: surtt
+  replace: surtout
+  propagate_case: true
+  word: true
+
+# - trigger: en tt
+#   replace: en tant
+#   propagate_case: true
+#   word: true
+
+- trigger: etq
+  replace: en tant que
+  propagate_case: true
+  word: true
+
+- trigger: exo
+  replace: exercice
+  propagate_case: true
+  left_word: true
+
+- trigger: pol
+  replace: politique
+  propagate_case: true
+  word: true
+
+- trigger: pols
+  replace: politiques
+  propagate_case: true
+  word: true
+
+- trigger: polt
+  replace: politiquement
+  propagate_case: true
+  word: true
+
+- trigger: PV
+  replace: PV
+  left_word: true
+
+- triggers:
+  - pv
+  - pvr
+  replace: pouvoir
+  propagate_case: true
+  word: true
+
+- triggers:
+  - pvs
+  - pvrs
+  replace: pouvoirs
+  propagate_case: true
+  word: true
+
+- trigger: .md
+  replace: .md
+  propagate_case: true
+
+- trigger: md
+  replace: milliard
+  propagate_case: true
+  word: true
+
+- trigger: mds
+  replace: milliards
+  propagate_case: true
+  word: true
+
+- trigger: hab
+  replace: habitant
+  propagate_case: true
+  word: true
+
+- trigger: habs
+  replace: habitants
+  propagate_case: true
+  word: true
+
+- trigger: acc
+  replace: accueil
+  propagate_case: true
+  word: true
+
+- trigger: cond
+  replace: condition
+  propagate_case: true
+  word: true
+
+- trigger: conds
+  replace: conditions
+  propagate_case: true
+  word: true
+
+- trigger: i18n
+  replace: internationalisation
+  propagate_case: true
+  left_word: true
+
+- trigger: l10n
+  replace: localisation
+  propagate_case: true
+  left_word: true
+
+- trigger: a11y
+  replace: accessibilité
+  propagate_case: true
+  left_word: true
+
+# npm run dev
+- trigger: run dev
+  replace: run dev
+  propagate_case: true
+
+# /dev/sda1
+- trigger: /dev
+  replace: /dev
   propagate_case: true
 
 - triggers:
-  - spheri
-  - sphèri
-  - sphêri
-  - sphëri
-  replace: sphéri
-  propagate_case: true
-
-- trigger: atteind
-  replace: atteint
-  propagate_case: true
-  word: true
-
-- trigger: atteinds
-  replace: atteints
+  - dev
+  - dév
+  replace: développeur
   propagate_case: true
   word: true
 
 - triggers:
-  - au delâ
-  - au delà
-  - au dela
-  - au-delâ
-  - au-dela
-  replace: au-delà
+  - devs
+  - dévs
+  replace: développeurs
   propagate_case: true
   word: true
 
-- trigger: au dessous
-  replace: au-dessous
+# npm run prod
+- trigger: run prod
+  replace: run prod
+  propagate_case: true
+
+- trigger: prod
+  replace: production
   propagate_case: true
   word: true
 
-- trigger: au dessus
-  replace: au-dessus
+- trigger: prods
+  replace: productions
+  propagate_case: true
+  word: true
+
+- trigger: prog
+  replace: programme
+  propagate_case: true
+  word: true
+
+- trigger: progs
+  replace: programmes
+  propagate_case: true
+  word: true
+
+- trigger: qd
+  replace: quand
+  propagate_case: true
+  word: true
+
+- trigger: vs
+  replace: vous
+  propagate_case: true
+  word: true
+
+- trigger: .js
+  replace: .js
+  propagate_case: true
+
+- trigger: js
+  replace: jamais
+  propagate_case: true
+  word: true
+
+- trigger: pq
+  replace: pourquoi
+  propagate_case: true
+  word: true
+
+- trigger: tech
+  replace: technologie
+  propagate_case: true
+  word: true
+
+- trigger: techs
+  replace: technologies
+  propagate_case: true
+  word: true
+
+- trigger: SS
+  replace: SS
+  word: true
+
+- trigger: ss
+  replace: sans
+  propagate_case: true
+  word: true
+
+- trigger: qui ft
+  replace: qui fait
+  propagate_case: true
+  word: true
+
+- trigger: du ft
+  replace: du fait
+  propagate_case: true
+  word: true
+
+- trigger: le ft
+  replace: le fait
+  propagate_case: true
+  word: true
+
+- trigger: en ft
+  replace: en fait
+  propagate_case: true
+  word: true
+
+- trigger: il en ft
+  replace: il en faut
+  propagate_case: true
+
+- trigger: ft
+  replace: faut
+  propagate_case: true
+  word: true
+
+- trigger: pt
+  replace: point
+  propagate_case: true
+  word: true
+
+- trigger: pts
+  replace: points
+  propagate_case: true
+  word: true
+
+- trigger: nb
+  replace: nombre
+  propagate_case: true
+  word: true
+
+- trigger: nbs
+  replace: nombres
+  propagate_case: true
+  word: true
+
+- trigger: nbre
+  replace: nombre
+  propagate_case: true
+  left_word: true
+
+- trigger: cmt
+  replace: comment
+  propagate_case: true
+  word: true
+
+- trigger: orga
+  replace: organisation
+  propagate_case: true
+  word: true
+
+- trigger: orgas
+  replace: organisations
+  propagate_case: true
+  word: true
+
+- trigger: bcp
+  replace: beaucoup
+  propagate_case: true
+  word: true
+
+- trigger: chq
+  replace: chaque
+  propagate_case: true
+  word: true
+
+- trigger: jr
+  replace: jour
+  propagate_case: true
+  word: true
+
+- trigger: jrs
+  replace: jours
+  propagate_case: true
+  word: true
+
+- trigger: cpte
+  replace: compte
+  propagate_case: true
+  left_word: true
+
+- trigger: co
+  replace: comme
+  propagate_case: true
+  word: true
+
+- trigger: bt
+  replace: bout
+  propagate_case: true
+  word: true
+
+- trigger: etd
+  replace: en train de
+  propagate_case: true
+  word: true
+
+- trigger: mvt
+  replace: mouvement
+  propagate_case: true
+  left_word: true
+
+- trigger: tlm
+  replace: tout le monde
+  propagate_case: true
+  word: true
+
+- trigger: téléphone quel
+  replace: tel quel
+  propagate_case: true
+
+- trigger: s tel
+  replace: s téléphones
+  propagate_case: true
+  right_word: true
+
+- trigger: x tel
+  replace: x téléphones
+  propagate_case: true
+  right_word: true
+
+- trigger: tel
+  replace: téléphone
+  propagate_case: true
+  word: true
+
+- trigger: tels
+  replace: téléphones
+  propagate_case: true
+  word: true
+
+- trigger: déj
+  replace: déjeuner
+  propagate_case: true
+  word: true
+
+- trigger: ordi
+  replace: ordinateur
+  propagate_case: true
+  word: true
+
+- trigger: ordis
+  replace: ordinateurs
+  propagate_case: true
+  word: true
+
+- trigger: notif
+  replace: notification
+  propagate_case: true
+  word: true
+
+- trigger: notifs
+  replace: notifications
   propagate_case: true
   word: true
 
 - triggers:
-  - aujoud'hui
-  - aujoudhui
-  - aujourdhui
+  - qq
+  - qqs
+  replace: quelques
+  propagate_case: true
+  word: true
+
+- trigger: pdt
+  replace: pendant
+  propagate_case: true
+  word: true
+
+- triggers:
+  - mtn
+  - mtnt
+  replace: maintenant
+  propagate_case: true
+  word: true
+
+- trigger: ctrl
+  replace: contrôle
+  propagate_case: true
+  word: true
+
+- trigger: ctrls
+  replace: contrôles
+  propagate_case: true
+  word: true
+
+- trigger: ctrle
+  replace: contrôle
+  propagate_case: true
+  left_word: true
+
+- trigger: alt
+  replace: alternative
+  propagate_case: true
+  word: true
+
+- trigger: alts
+  replace: alternatives
+  propagate_case: true
+  word: true
+
+- trigger: suppr
+  replace: supprimer
+  propagate_case: true
+  word: true
+
+- trigger: maj
+  replace: majuscule
+  propagate_case: true
+  word: true
+
+- trigger: majs
+  replace: majuscules
+  propagate_case: true
+  word: true
+
+- trigger: sécu
+  replace: sécurité
+  propagate_case: true
+  word: true
+
+- trigger: sécus
+  replace: sécurités
+  propagate_case: true
+  word: true
+
+- trigger: màj
+  replace: mise à jour
+  propagate_case: true
+  word: true
+
+- trigger: màjs
+  replace: mises à jour
+  propagate_case: true
+  word: true
+
+- trigger: une auto
+  replace: une auto
+  propagate_case: true
+
+- trigger: auto
+  replace: automatique
+  propagate_case: true
+  word: true
+
+- trigger: s mdp
+  replace: s mots de passe
+  propagate_case: true
+  right_word: true
+
+- trigger: x mdp
+  replace: x mots de passe
+  propagate_case: true
+  right_word: true
+
+- trigger: mdp
+  replace: mot de passe
+  propagate_case: true
+  word: true
+
+- trigger: mdps
+  replace: mots de passe
+  propagate_case: true
+  word: true
+
+- trigger: slt
+  replace: seulement
+  propagate_case: true
+  word: true
+
+- trigger: phys
+  replace: physique
+  propagate_case: true
+  word: true
+
+- trigger: lgtps
+  replace: longtemps
+  propagate_case: true
+  word: true
+
+- trigger: chgt
+  replace: changement
+  propagate_case: true
+  word: true
+
+- trigger: chgts
+  replace: changements
+  propagate_case: true
+  word: true
+
+- trigger: pex
+  replace: par exemple
+  propagate_case: true
+  word: true
+
+- trigger: gd
+  replace: grand
+  propagate_case: true
+  word: true
+
+- trigger: gde
+  replace: grande
+  propagate_case: true
+  word: true
+
+- trigger: gds
+  replace: grands
+  propagate_case: true
+  word: true
+
+- trigger: gdes
+  replace: grandes
+  propagate_case: true
+  word: true
+
+- triggers:
+  - qte
+  - qté
+  replace: quantité
+  propagate_case: true
+  left_word: true
+
+- trigger: pr
+  replace: pour
+  propagate_case: true
+  word: true
+
+- trigger: s ent
+  replace: s entreprises
+  propagate_case: true
+  right_word: true
+
+- trigger: x ent
+  replace: x entreprises
+  propagate_case: true
+  right_word: true
+
+- trigger: ent
+  replace: entreprise
+  propagate_case: true
+  word: true
+
+- trigger: ents
+  replace: entreprises
+  propagate_case: true
+  word: true
+
+- trigger: ms
+  replace: mais
+  propagate_case: true
+  word: true
+
+- triggers:
+  - dept
+  - dépt
+  replace: département
+  propagate_case: true
+  left_word: true
+
+- trigger: "l'éco"
+  replace: "l'économie"
+  propagate_case: true
+  word: true
+
+- trigger: les écos
+  replace: les économies
+  propagate_case: true
+  word: true
+
+- trigger: une éco
+  replace: une économie
+  propagate_case: true
+  word: true
+
+- trigger: des écos
+  replace: des économies
+  propagate_case: true
+  word: true
+
+- trigger: éco
+  replace: économique
+  propagate_case: true
+  word: true
+
+- trigger: écos
+  replace: économiques
+  propagate_case: true
+  word: true
+
+- trigger: manif
+  replace: manifestation
+  propagate_case: true
+  word: true
+
+- trigger: manifs
+  replace: manifestations
+  propagate_case: true
+  word: true
+
+- trigger: finct
+  replace: financement
+  propagate_case: true
+  left_word: true
+
+- trigger: nv
+  replace: nouveau
+  propagate_case: true
+  word: true
+
+- trigger: nvs
+  replace: nouveaux
+  propagate_case: true
+  word: true
+
+- trigger: nvx
+  replace: nouveaux
+  propagate_case: true
+  word: true
+
+- trigger: nvel
+  replace: nouvel
+  propagate_case: true
+  left_word: true
+
+- trigger: ajd
   replace: aujourd'hui
   propagate_case: true
   word: true
 
-- triggers:
-  - aupres
-  - auprés
-  replace: auprès
+- trigger: iya
+  replace: il y a
   propagate_case: true
   word: true
 
-- trigger: aux plus vite
-  replace: au plus vite
+- trigger: ee
+  replace: entre
   propagate_case: true
   word: true
 
-- trigger: au seins
-  replace: au sein
+- trigger: Fce
+  replace: France
+  propagate_case: true
+  left_word: true
+
+- trigger: fcs
+  replace: français
   propagate_case: true
   word: true
 
-- trigger: aux dépends
-  replace: aux dépens
-  propagate_case: true
-  word: true
-
-- trigger: baillage
-  replace: bailliage
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - bailler aux corneilles
-  - bâiller aux corneilles
-  replace: bayer aux corneilles
-  propagate_case: true
-  word: true
-
-- trigger: banquaire
-  replace: bancaire
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - base ball
-  - base-ball
-  replace: baseball
-  propagate_case: true
-  word: true
-
-- trigger: bisextile
-  replace: bissextile
-  propagate_case: true
-  left_word: true
-
-- trigger: bizard
-  replace: bizarre
-  propagate_case: true
-  left_word: true
-
-- trigger: blanchiement
-  replace: blanchiment
-  propagate_case: true
-  left_word: true
-
-- trigger: blizard
-  replace: blizzard
-  propagate_case: true
-  left_word: true
-
-- trigger: Camberra
-  replace: Canberra
-  propagate_case: true
-  word: true
-
-- trigger: capoiera
-  replace: capoeira
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - carousel
-  - carroussel
-  - caroussel
-  replace: carrousel
-  propagate_case: true
-  left_word: true
-
-- trigger: cathéchisme
-  replace: catéchisme
-  propagate_case: true
-  left_word: true
-
-- trigger: categorie
-  replace: catégorie
-  propagate_case: true
-  left_word: true
-
-- trigger: celà
-  replace: cela
-  propagate_case: true
-  word: true
-
-- trigger: ceuillir
-  replace: cueillir
-  propagate_case: true
-  left_word: true
-
-- trigger: chatain
-  replace: châtain
-  propagate_case: true
-  left_word: true
-
-- trigger: chatelain
-  replace: châtelain
-  propagate_case: true
-  left_word: true
-
-- trigger: chèreté
-  replace: cherté
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - chifre d'affaire
-  - chifre d'affaires
-  - chiffre d'affaire
-  replace: chiffre d'affaires
-  propagate_case: true
-  word: true
-
-- trigger: cîme
-  replace: cime
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - cimitiere
-  - cimitière
-  - cimitiére
-  - cimitiêre
-  - cimetiere
-  - cimetiére
-  - cimetiêre
-  replace: cimetière
-  propagate_case: true
-  left_word: true
-
-- trigger: Clémenceau
-  replace: Clemenceau
-  propagate_case: true
-  word: true
-
-- trigger: coallition
-  replace: coalition
-  propagate_case: true
-  left_word: true
-
-- trigger: companie
-  replace: compagnie
-  propagate_case: true
-  left_word: true
-
-- trigger: conjuguaison
-  replace: conjugaison
-  propagate_case: true
-  left_word: true
-
-- trigger: conseil d'administrations
-  replace: conseil d'administration
-  propagate_case: true
-  word: true
-
-- trigger: conseils d'administrations
-  replace: conseils d'administration
-  propagate_case: true
-  word: true
-
-- trigger: contrevers
-  replace: controvers
-  propagate_case: true
-  left_word: true
-
-- trigger: Côte-d'Azur
-  replace: Côte d'Azur
-  propagate_case: true
-  left_word: true
-
-- trigger: côteau
-  replace: coteau
-  propagate_case: true
-  left_word: true
-
-- trigger: courrir
-  replace: courir
-  propagate_case: true
-  left_word: true
-
-- trigger: croyent
-  replace: croient
-  propagate_case: true
-  left_word: true
-
-- trigger: croivent
-  replace: croient{{output}}
-  propagate_case: true
-  left_word: true
-  vars:
-  - name: output
-    type: shell
-    params:
-      cmd: notify-send "L'eûtes-vous croivé ???"
-
-- trigger: cygogne
-  replace: cigogne
-  propagate_case: true
-  left_word: true
-
-- trigger: de part et d'autres
-  replace: de part et d'autre
-  propagate_case: true
-  word: true
-
-- trigger: debut
-  replace: début
-  propagate_case: true
-  left_word: true
-
-- trigger: Decembre
-  replace: décembre
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - déconection
-  - déconnection
-  replace: déconnexion
-  propagate_case: true
-  left_word: true
-
-- trigger: dédicasse
-  replace: dédicace
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - degat
-  - dégat
-  - dègat
-  replace: dégât
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - dépéche
-  - dépèche
-  replace: dépêche
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - depot
-  - dépot
-  - dèpot
-  replace: dépot
-  propagate_case: true
-  left_word: true
-
-- trigger: déservir
-  replace: desservir
-  propagate_case: true
-  left_word: true
-
-- trigger: dilemne
-  replace: dilemme
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - disfonctionement
-  - disfonctionemment
-  - disfonctionnement
-  - disfonctionnemment
-  - dysfonctionement
-  - dysfonctionemment
-  - dysfonctionnemment
-  replace: dysfonctionnement
-  propagate_case: true
-  left_word: true
-
-- trigger: dûs
-  replace: dus
-  propagate_case: true
-  word: true
-
-- trigger: dûe
-  replace: due
-  propagate_case: true
-  left_word: true
-
-- trigger: dissidence en
-  replace: dissidence de
-  propagate_case: true
-  word: true
-
-- trigger: echange
-  replace: échange
-  propagate_case: true
-  left_word: true
-
-- trigger: eclairage
-  replace: éclairage
-  propagate_case: true
-  left_word: true
-
-- trigger: ecologie
-  replace: écologie
-  propagate_case: true
-  left_word: true
-
-- trigger: ecossais
-  replace: écossais
-  propagate_case: true
-  left_word: true
-
-- trigger: edifice
-  replace: édifice
-  propagate_case: true
-  left_word: true
-
-- trigger: education
-  replace: éducation
-  propagate_case: true
-  left_word: true
-
-- trigger: Eglise
-  replace: Église
-  propagate_case: true
-  left_word: true
-
-- trigger: election
-  replace: élection
-  propagate_case: true
-  left_word: true
-
-- trigger: electronique
-  replace: électronique
-  propagate_case: true
-  left_word: true
-
-- trigger: eloge
-  replace: éloge
-  propagate_case: true
-  left_word: true
-
-- trigger: une éloge
-  replace: un éloge
-  propagate_case: true
-  word: true
-
-- trigger: eménager
-  replace: emménager
-  propagate_case: true
-  left_word: true
-
-- trigger: emental
-  replace: emmental
-  propagate_case: true
-  left_word: true
-
-- trigger: est emprunt
-  replace: est empreint
-  propagate_case: true
-  left_word: true
-
-- trigger: sont empruntes
-  replace: sont empreintes
-  propagate_case: true
-  left_word: true
-
-- trigger: energie
-  replace: énergie
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - regle
-  - rêgle
-  replace: règle
+- trigger: fcse
+  replace: française
   propagate_case: true
   word: true
 
 - triggers:
-  - génera
-  - génèra
-  - génêra
-  - genéra
-  - genera
-  - genèra
-  - genêra
-  - gènéra
-  - gènera
-  - gènèra
-  - gènêra
-  - gênéra
-  - gênera
-  - gênèra
-  - gênêra
-  replace: généra
-  propagate_case: true
-
-- trigger: en règle général
-  replace: en règle générale
-  propagate_case: true
-
-- trigger: entrepot
-  replace: entrepôt
+  - fcses
+  - fces
+  replace: françaises
   propagate_case: true
   left_word: true
 
-- trigger: en terme de
-  replace: en termes de
+- trigger: psdt
+  replace: président
+  propagate_case: true
+  left_word: true
+
+- trigger: cad
+  replace: c'est-à-dire
   propagate_case: true
   word: true
 
-- trigger: Eole
-  replace: Éole
-  word: true
-
-- trigger: epoque
-  replace: époque
-  propagate_case: true
-  left_word: true
-
-- trigger: equateur
-  replace: équateur
-  propagate_case: true
-  left_word: true
-
-- trigger: hermite
-  replace: ermite
-  propagate_case: true
-  left_word: true
-
-- trigger: un espèce
-  replace: une espèce
+- trigger: tx
+  replace: taux
   propagate_case: true
   word: true
 
-- trigger: etablisement
+- trigger: let tx
+  replace: let tx
+  propagate_case: true
+
+- trigger: let (tx
+  replace: let (tx
+  propagate_case: true
+
+- trigger: rdt
+  replace: rendement
+  propagate_case: true
+  left_word: true
+
+- trigger: s étab
+  replace: s établissements
+  propagate_case: true
+  right_word: true
+
+- trigger: x étab
+  replace: x établissements
+  propagate_case: true
+  right_word: true
+
+- trigger: étab
   replace: établissement
   propagate_case: true
   word: true
 
-- triggers:
-  - etablisement
-  - etablisemment
-  - etablissement
-  - etablissemment
-  replace: établissement
-  propagate_case: true
-  left_word: true
-
-- trigger: etat
-  replace: état
-  propagate_case: true
-  left_word: true
-
-- trigger: etique
-  replace: éthique
-  propagate_case: true
-  left_word: true
-
-- trigger: evangile
-  replace: évangile
-  propagate_case: true
-  left_word: true
-
-- trigger: ex aequo
-  replace: ex æquo
-  propagate_case: true
-  word: true
-
-- trigger: exsite
-  replace: existe
-  propagate_case: true
-  left_word: true
-
-- trigger: exangue
-  replace: exsangue
-  propagate_case: true
-  left_word: true
-
-- trigger: exhaucer
-  replace: exaucer
-  propagate_case: true
-  left_word: true
-
-- trigger: exhorbitant
-  replace: exorbitant
-  propagate_case: true
-  left_word: true
-
-- trigger: fratras
-  replace: fatras
+- trigger: étabs
+  replace: établissements
   propagate_case: true
   word: true
 
 - triggers:
-  - faire parti
-  - faire partis
-  - faire partit
-  - faire parties
-  replace: faire partie
+  - s pis
+  - s pis.
+  - s p.i.s.
+  - s p. i. s.
+  replace: s professions intellectuelles supérieures
+  propagate_case: true
+  right_word: true
+
+- triggers:
+  - x pis
+  - x pis.
+  - x p.i.s.
+  - x p. i. s.
+  replace: x professions intellectuelles supérieures
+  propagate_case: true
+  right_word: true
+
+- triggers:
+  - p.i.s.
+  - p. i. s.
+  replace: profession intellectuelle supérieure
   propagate_case: true
   word: true
 
 - triggers:
-  - fait parti
-  - fait partis
-  - fait partit
-  - fait parties
-  replace: fait partie
+  - p.i.ss.
+  - p. i. ss.
+  replace: professions intellectuelles supérieures
   propagate_case: true
   word: true
 
-- trigger: famillial
-  replace: familial
+- trigger: "std:"
+  replace: "std:"
   propagate_case: true
   left_word: true
 
-- triggers:
-  - féderation
-  - fédèration
-  - fédêration
-  - fedération
-  - federation
-  - fedèration
-  - fedêration
-  - fèdération
-  - fèderation
-  - fèdèration
-  - fèdêration
-  - fêdération
-  - fêderation
-  - fêdèration
-  - fêdêration
-  replace: fédération
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - ferovière
-  - ferrovière
-  replace: ferroviaire
-  propagate_case: true
-  left_word: true
-
-- trigger: fevrier
-  replace: février
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - fuchia
-  - fuschia
-  replace: fuchsia
-  propagate_case: true
-  left_word: true
-
-- trigger: gauffre
-  replace: gaufre
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - genealogi
-  - genéalogi
-  - genèalogi
-  - gennealogi
-  - gennéalogi
-  - gennèalogi
-  - génealogi
-  - génèalogi
-  - génnealogi
-  - génnéalogi
-  - génnèalogi
-  - gènealogi
-  - gènéalogi
-  - gènèalogi
-  - gènnealogi
-  - gènnéalogi
-  - gènnèalogi
-  replace: généalogi
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - genese
-  - genése
-  - genèse
-  - gennese
-  - gennése
-  - gennèse
-  - génese
-  - génése
-  - génèse
-  - génnese
-  - génnése
-  - génnèse
-  - gènese
-  - gènése
-  - gènèse
-  - gènnese
-  - gènnése
-  - gènnèse
-  replace: genèse
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - gênois
-  - gènois
-  replace: génois
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - geographie
-  - gèographie
-  - gêographie
-  replace: géographie
-  propagate_case: true
-  left_word: true
-
-- trigger: groseiller
-  replace: groseillier
-  propagate_case: true
-  left_word: true
-
-- trigger: Guyanne
-  replace: Guyane
-  propagate_case: true
-  left_word: true
-
-- trigger: hauts-parleurs
-  replace: haut-parleurs
+- trigger: std
+  replace: standard
   propagate_case: true
   word: true
 
-- trigger: hazard
-  replace: hasard
-  propagate_case: true
-  left_word: true
-
-- trigger: héroine
-  replace: héroïne
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - héro
-  - heros
-  replace: héros
-  propagate_case: true
-  word: true
-
-- trigger: l'héros
-  replace: le héros
-  propagate_case: true
-  word: true
-
-- trigger: incluera
-  replace: inclura
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - inconsiement
-  - inconsiemment
-  - inconciement
-  - inconciemment
-  - inconsciement
-  - inconsciemment
-  replace: inconsciemment
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - inferieur
-  - inferrieur
-  - inférrieur
-  - infèrieur
-  - infèrrieur
-  - infêrieur
-  - infêrrieur
-  replace: inférieur
-  propagate_case: true
-  left_word: true
-
-- trigger: ingras
-  replace: ingrat
-  propagate_case: true
-  word: true
-
-- trigger: instalation
-  replace: installation
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - inteligement
-  - inteligemment
-  - intelligement
-  replace: intelligemment
-  propagate_case: true
-  word: true
-
-- trigger: japonnais
-  replace: japonais
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - journaus
-  - journeaus
-  - journeaux
-  replace: journaux
-  propagate_case: true
-  word: true
-
-- trigger: Lybie
-  replace: Libye
-  propagate_case: true
-  word: true
-
-# - trigger: license
-#   replace: licence
-#   propagate_case: true
-#   left_word: true
-
-- trigger: lieu dit
-  replace: lieu-dit
+- trigger: stds
+  replace: standards
   propagate_case: true
   word: true
 
 - triggers:
-  - lieux dit
-  - lieux dits
-  replace: lieux-dits
+  - RD
+  - R&D
+  replace: recherche-développement
+  word: true
+
+- trigger: bjr
+  replace: bonjour
+  propagate_case: true
+  word: true
+
+- trigger: conc
+  replace: concurrence
+  propagate_case: true
+  word: true
+
+- trigger: terriroite
+  replace: territoire
+  propagate_case: true
+  left_word: true
+
+- trigger: sur Rép
+  replace: sur Rép
+  propagate_case: true
+  left_word: true
+
+- trigger: touche Rép
+  replace: touche Rép
+  propagate_case: true
+  left_word: true
+
+- trigger: rép
+  replace: république
+  propagate_case: true
+  word: true
+
+- trigger: réps
+  replace: républiques
+  propagate_case: true
+  word: true
+
+- trigger: s mm
+  replace: s mêmes
+  propagate_case: true
+  right_word: true
+
+- trigger: x mm
+  replace: x mêmes
+  propagate_case: true
+  right_word: true
+
+- trigger: mm
+  replace: même
+  propagate_case: true
+  word: true
+
+- trigger: MMS
+  replace: MMS
+  word: true
+
+- trigger: mms
+  replace: mêmes
+  propagate_case: true
+  word: true
+
+- trigger: psrép
+  replace: président de la République
+  propagate_case: true
+  word: true
+
+- trigger: psréps
+  replace: présidents de la République
+  propagate_case: true
+  word: true
+
+- trigger: gpe
+  replace: groupe
+  propagate_case: true
+  left_word: true
+
+- trigger: sys.
+  replace: sys.
+  propagate_case: true
+  left_word: true
+
+- trigger: import sys
+  replace: import sys
+  propagate_case: true
+
+- trigger: sys
+  replace: système
+  propagate_case: true
+  word: true
+
+- trigger: syss
+  replace: systèmes
+  propagate_case: true
+  word: true
+
+- trigger: .pop
+  replace: .pop
+  propagate_case: true
+
+- trigger: s pop
+  replace: s populations
+  propagate_case: true
+  right_word: true
+
+- trigger: x pop
+  replace: x populations
+  propagate_case: true
+  right_word: true
+
+- trigger: pop
+  replace: population
+  propagate_case: true
+  word: true
+
+- trigger: pops
+  replace: populations
+  propagate_case: true
+  word: true
+
+- trigger: as dt
+  replace: as dt
+  propagate_case: true
+  left_word: true
+
+- trigger: dt.
+  replace: dt.
+  propagate_case: true
+
+- trigger: dt
+  replace: doit
+  propagate_case: true
+  word: true
+
+- trigger: .rs
+  replace: .rs
+  propagate_case: true
+
+- trigger: s rs
+  replace: s réseaux sociaux
+  propagate_case: true
+  right_word: true
+
+- trigger: x rs
+  replace: x réseaux sociaux
+  propagate_case: true
+  right_word: true
+
+- trigger: rs
+  replace: réseau social
+  propagate_case: true
+  word: true
+
+- trigger: s rsn
+  replace: s réseaux sociaux numériques
+  propagate_case: true
+  right_word: true
+
+- trigger: x rsn
+  replace: x réseaux sociaux numériques
+  propagate_case: true
+  right_word: true
+
+- trigger: rsn
+  replace: réseau social numérique
+  propagate_case: true
+  word: true
+
+- trigger: rsns
+  replace: réseaux sociaux numériques
+  propagate_case: true
+  word: true
+
+- trigger: nms
+  replace: néanmoins
+  propagate_case: true
+  word: true
+
+- trigger: une q
+  replace: une question
+  propagate_case: true
+  word: true
+
+- trigger: s q
+  replace: s questions
+  propagate_case: true
+  right_word: true
+
+- trigger: x q
+  replace: x questions
+  propagate_case: true
+  right_word: true
+
+- trigger: la q
+  replace: la question
+  propagate_case: true
+  word: true
+
+- trigger: qs
+  replace: questions
+  propagate_case: true
+  word: true
+
+- trigger: e t
+  replace: e et
+  propagate_case: true
+  right_word: true
+
+- trigger: SVT
+  replace: SVT
+  word: true
+
+- trigger: svt
+  replace: souvent
+  propagate_case: true
+  word: true
+
+- trigger: la GB
+  replace: la Grande-Bretagne
   propagate_case: true
   word: true
 
 - triggers:
-  - litéralement
-  - litéralemment
-  - litérallement
-  - litérallemment
-  - litérralement
-  - litérralemment
-  - litérrallement
-  - litérrallemment
-  - literalement
-  - literalemment
-  - literallement
-  - literallemment
-  - literralement
-  - literralemment
-  - literrallement
-  - literrallemment
-  - litèralement
-  - litèralemment
-  - litèrallement
-  - litèrallemment
-  - litèrralement
-  - litèrralemment
-  - litèrrallement
-  - litèrrallemment
-  - littéralemment
-  - littérallement
-  - littérallemment
-  - littérralement
-  - littérralemment
-  - littérrallement
-  - littérrallemment
-  - litteralement
-  - litteralemment
-  - litterallement
-  - litterallemment
-  - litterralement
-  - litterralemment
-  - litterrallement
-  - litterrallemment
-  - littèralement
-  - littèralemment
-  - littèrallement
-  - littèrallemment
-  - littèrralement
-  - littèrralemment
-  - littèrrallement
-  - littèrrallemment
-  replace: littéralement
-  propagate_case: true
-  left_word: true
-
-- trigger: lorsque a
-  replace: lorsqu'a
-  propagate_case: true
-  left_word: true
-
-- trigger: lorsque e
-  replace: lorsqu'e
-  propagate_case: true
-  left_word: true
-
-- trigger: lorsque i
-  replace: lorsqu'i
-  propagate_case: true
-  left_word: true
-
-- trigger: lorsque o
-  replace: lorsqu'o
-  propagate_case: true
-  left_word: true
-
-- trigger: lorsque u
-  replace: lorsqu'u
-  propagate_case: true
-  left_word: true
-
-- trigger: magasine
-  replace: magazine
-  propagate_case: true
-  left_word: true
-
-- trigger: meileur
-  replace: meilleur
-  propagate_case: true
-  left_word: true
-
-- trigger: medaille
-  replace: médaille
-  propagate_case: true
-  left_word: true
-
-- trigger: memoire
-  replace: mémoire
-  propagate_case: true
-  left_word: true
-
-- trigger: mémotechnique
-  replace: mnémotechnique
-  propagate_case: true
-  left_word: true
-
-- trigger: Midi Pyrénées
-  replace: Midi-Pyrénées
+  - les USA
+  - les EU
+  replace: les États-Unis
   propagate_case: true
   word: true
+
+- triggers:
+  - des USA
+  - des EU
+  replace: des États-Unis
+  propagate_case: true
+  word: true
+
+- triggers:
+  - aux USA
+  - aux EU
+  replace: aux États-Unis
+  propagate_case: true
+  word: true
+
+- triggers:
+  - esu
+  - esus
+  replace: États-Unis
+  propagate_case: true
+  word: true
+
+- trigger: le RU
+  replace: le Royaume-Uni
+  propagate_case: true
+  word: true
+
+- trigger: du RU
+  replace: du Royaume-Uni
+  propagate_case: true
+  word: true
+
+- trigger: au RU
+  replace: au Royaume-Uni
+  propagate_case: true
+  word: true
+
+- trigger: csmt
+  replace: considérablement
+  propagate_case: true
+  word: true
+
+- trigger: crté
+  replace: caractérisé
+  propagate_case: true
+  word: true
+
+- trigger: crtée
+  replace: caractérisée
+  propagate_case: true
+  word: true
+
+- trigger: crtés
+  replace: caractérisés
+  propagate_case: true
+  word: true
+
+- trigger: crtées
+  replace: caractérisées
+  propagate_case: true
+  word: true
+
+- trigger: 1m
+  replace: 1 million
+  word: true
+
+- regex: (?P<number>\d+)[Mm]\b(?P<next>\s\S|\S)
+  replace: "{{number}} millions{{next}}"
+  propagate_case: true
+  word: true
+
+- triggers:
+  - pda
+  - pva
+  - pvda
+  replace: pouvoir d'achat
+  propagate_case: true
+  word: true
+
+- trigger: <td
+  replace: <td
+  propagate_case: true
+
+- trigger: td
+  replace: tendance
+  propagate_case: true
+  word: true
+
+- trigger: tds
+  replace: tendances
+  propagate_case: true
+  word: true
+
+- trigger: intl.
+  replace: intl.
+  propagate_case: true
+
+- trigger: intl
+  replace: international
+  propagate_case: true
+  word: true
+
+- triggers:
+  - intls
+  - intlx
+  - intx
+  replace: internationaux
+  propagate_case: true
+  word: true
+
+- trigger: rx
+  replace: réflexe
+  propagate_case: true
+  word: true
+
+- trigger: let rx
+  replace: let rx
+  propagate_case: true
+
+- trigger: ", rx"
+  replace: ", rx"
+  propagate_case: true
+
+- trigger: rxs
+  replace: réflexes
+  propagate_case: true
+  word: true
+
+# Real Python
+- trigger: RP
+  replace: RP
+  word: true
+
+- trigger: rp
+  replace: rapport
+  propagate_case: true
+  word: true
+
+- trigger: rps
+  replace: rapports
+  propagate_case: true
+  word: true
+
+- trigger: prp
+  replace: par rapport
+  propagate_case: true
+  word: true
+
+- trigger: leur prp
+  replace: leur propres
+  propagate_case: true
+  word: true
+
+- triggers:
+  - leurs prp
+  - leurs prps
+  replace: leurs propres
+  propagate_case: true
+  word: true
+
+- trigger: ppb
+  replace: pouvoirs publics
+  propagate_case: true
+  word: true
+
+- trigger: dmd
+  replace: demande
+  propagate_case: true
+  word: true
+
+- trigger: dmdr
+  replace: demander
+  propagate_case: true
+  left_word: true
+
+- trigger: dmds
+  replace: demandes
+  propagate_case: true
+  word: true
+
+- trigger: sru
+  replace: sur
+  propagate_case: true
+  word: true
+
+- trigger: etn
+  replace: ent
+  propagate_case: true
+  right_word: true
+
+- trigger: etns
+  replace: ents
+  propagate_case: true
+  right_word: true
+
+- trigger: bq
+  replace: banque
+  propagate_case: true
+  word: true
+
+- trigger: bqs
+  replace: banques
+  propagate_case: true
+  word: true
+
+- trigger: tvl
+  replace: travail
+  propagate_case: true
+  word: true
+
+- triggers:
+  - tvls
+  - tvlx
+  - tvx
+  replace: travaux
+  propagate_case: true
+  word: true
+
+- triggers:
+  - creee
+  - creeé
+  - creée
+  - creéé
+  - créee
+  - créeé
+  - crééé
+  replace: créée
+  propagate_case: true
+  word: true
+
+- trigger: pms
+  replace: plus ou moins
+  propagate_case: true
+  word: true
+
+- trigger: ops
+  replace: opérations
+  propagate_case: true
+  word: true
+
+# - trigger: essai
+#   replace: "{{output}}"
+#   vars:
+#   - name: output
+#     type: shell
+#     params:
+#       cmd: echo dGVzdAo= | base64 -d
 
 - trigger: moeurs
   replace: mœurs
   propagate_case: true
   word: true
 
-- trigger: Moyen Orient
-  replace: Moyen-Orient
+- trigger: Oedipe
+  replace: Œdipe
   propagate_case: true
   word: true
 
-- trigger: non-officiel
-  replace: non officiel
+- trigger: emt
+  replace: ement
   propagate_case: true
-  left_word: true
+  right_word: true
 
-- trigger: non respect
-  replace: non-respect
-  propagate_case: true
-  left_word: true
-
-- trigger: non violation
-  replace: non-violation
-  propagate_case: true
-  left_word: true
-
-- trigger: nouveaux-nés
-  replace: nouveau-nés
-  propagate_case: true
-  left_word: true
-
-- trigger: numero
-  replace: numéro
-  propagate_case: true
-  left_word: true
-
-- trigger: obédiance
-  replace: obédience
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - obligement
-  - obligeament
-  - obligemment
-  replace: obligeamment
-  propagate_case: true
-  left_word: true
-
-- trigger: obnibul
-  replace: obnubil
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - omnibil
-  - omnibul
-  - omnubil
-  - omnubul
-  replace: obnubil
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - occulaire
-  - occullaire
-  - ocullaire
-  replace: oculaire
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - ocurence
-  - occurence
-  - ocurrence
-  replace: occurrence
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - ont disparus
-  - ont disparues
-  replace: ont disparu
+- trigger: Allemange
+  replace: Allemagne
   propagate_case: true
   word: true
 
-- trigger: opera
-  replace: opéra
+- trigger: itino
+  replace: ition
   propagate_case: true
-  left_word: true
+  right_word: true
 
 - triggers:
-  - ornitorinque
-  - ornitorynque
-  - ornithorinque
-  - ornytorinque
-  - ornytorynque
-  - ornythorinque
-  - ornythorynque
-  replace: ornithorynque
-  propagate_case: true
-  left_word: true
-
-- trigger: oyé
-  replace: oyez
-  propagate_case: true
-  word: true
-
-- trigger: Panamá
-  replace: Panama
-  propagate_case: true
-  word: true
-
-- trigger: parceque
-  replace: parce que
-  propagate_case: true
-  word: true
-
-- trigger: parmis
-  replace: parmi
-  propagate_case: true
-  word: true
-
-- trigger: patisserie
-  replace: pâtisserie
-  propagate_case: true
-  word: true
-
-- trigger: pécunier
-  replace: pécuniaire
-  propagate_case: true
-  left_word: true
-
-- trigger: penate
-  replace: pénate
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - permanance
-  - permannance
-  - permannence
-  replace: permanence
-  propagate_case: true
-  left_word: true
-
-- trigger: permi
-  replace: permis
+  - 1gm
+  - Première gm
+  replace: Première Guerre mondiale
   propagate_case: true
   word: true
 
 - triggers:
-  - pertinamment
-  - pertinnement
-  - pertinnemment
-  replace: pertinemment
+  - 2gm
+  - Seconde gm
+  replace: Seconde Guerre mondiale
   propagate_case: true
   word: true
 
 - triggers:
-  - philantrop
-  - phillantrop
-  - phylantrop
-  - phyllantrop
-  replace: philanthrop
+  - atn
+  - a'
+  - attn
+  - at'
+  replace: ation
   propagate_case: true
-  left_word: true
+  right_word: true
 
-- triggers:
-  - philarmoni
-  - philarmonni
-  - phillarmoni
-  - phillarmonni
-  - phylarmoni
-  - phylarmonni
-  - phyllarmoni
-  - phyllarmonni
-  replace: philharmoni
-  propagate_case: true
-  left_word: true
+- regex: (?P<text>\w+s)'
+  replace: "{{text}}ion"
 
-- trigger: pillule
-  replace: pilule
-  propagate_case: true
-  left_word: true
+- regex: (?P<text>\w+S)'
+  replace: "{{text}}ION"
 
-- trigger: plannification
-  replace: planification
-  propagate_case: true
-  left_word: true
-
-- trigger: pléïade
-  replace: pléiade
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - plùtôt
-  - plùtot
-  - plûtôt
-  - plûtot
-  - plutot
-  replace: plutôt
+- trigger: urss
+  replace: URSS
   propagate_case: true
   word: true
 
-- triggers:
-  - poles position
-  - pôle position
-  - pôles position
-  replace: pole position
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - poliptique
-  - poliptyque
-  - polyptique
-  replace: polyptyque
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - pots de vin
-  - pots de vins
-  - pots de-vin
-  - pots de-vins
-  - pots-de vin
-  - pots-de vins
-  - pots-de-vin
-  - pots-de-vins
-  replace: pots-de-vin
+- trigger: usa
+  replace: USA
   propagate_case: true
   word: true
 
-- trigger: pourir
-  replace: pourrir
-  propagate_case: true
-  left_word: true
-
-- trigger: pouriture
-  replace: pourriture
+- trigger: onu
+  replace: ONU
   propagate_case: true
   word: true
 
-- triggers:
-  - précipitament
-  - précipitement
-  - précipitemment
-  replace: précipitamment
-  propagate_case: true
-  word: true
-
-- triggers:
-  - précisémment
-  - précisement
-  - précisemment
-  - précisèment
-  - précisèmment
-  replace: précisément
-  propagate_case: true
-  word: true
-
-- triggers:
-  - prémice
-  - prémisses
-  replace: prémisse
-  label: prémisse = hypothèse d'une implication ou d'un syllogisme
-  word: true
-
-- triggers:
-  - prémice
-  - prémisses
-  replace: prémices
-  label: prémices (toujours au pluriel) = premières traces d'un phénomène
-  word: true
-
-- triggers:
-  - procés verbals
-  - procés verbaux
-  - procés-verbals
-  - procés-verbaux
-  - proces verbals
-  - proces verbaux
-  - proces-verbals
-  - proces-verbaux
-  - procès verbals
-  - procès verbaux
-  - procès-verbals
-  - procës verbals
-  - procës verbaux
-  - procës-verbals
-  - procës-verbaux
-  replace: procès-verbaux
-  propagate_case: true
-  word: true
-
-- triggers:
-  - procés verbal
-  - procés-verbal
-  - proces verbal
-  - proces-verbal
-  - procès verbal
-  - procès-verbal
-  - procës verbal
-  - procës-verbal
-  replace: procès-verbal
-  propagate_case: true
-  word: true
-
-- triggers:
-  - profondement
-  - profondèment
-  - profondemment
-  - profondémment
-  - profondèmment
-  replace: profondément
-  propagate_case: true
-  word: true
-
-- trigger: provisoir
-  replace: provisoire
-  propagate_case: true
-  left_word: true
-
-- trigger: puissament
-  replace: puissamment
-  propagate_case: true
-  word: true
-
-- trigger: puit
-  replace: puis
-  label: puis = et ensuite
-  propagate_case: true
-  word: true
-
-- trigger: puit
-  replace: puits
-  label: puits (avec de l'eau)
-  propagate_case: true
-  word: true
-
-- regex: "[Pp][yi]rr?[éeèêë]nn?[éeèêë]es"
-  replace: Pyrénées
-  propagate_case: true
-  word: true
-
-- trigger: quattuor
-  replace: quatuor
-  propagate_case: true
-  left_word: true
-
-- trigger: que un
-  replace: qu'un
-  propagate_case: true
-  left_word: true
-
-- trigger: quelques temps
-  replace: quelque temps
-  propagate_case: true
-  word: true
-
-- trigger: quelques uns
-  replace: quelques-uns
-  propagate_case: true
-  word: true
-
-- trigger: quelques unes
-  replace: quelques-unes
-  propagate_case: true
-  word: true
-
-- triggers:
-  - rebelion
-  - rebellion
-  replace: rébellion
-  propagate_case: true
-  word: true
-
-- trigger: recelle
-  replace: recèle
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - receuilir
-  - receuillir
-  replace: recueillir
-  propagate_case: true
-  word: true
-
-- triggers:
-  - recomandation
-  - recomendation
-  - recommendation
-  replace: recommandation
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - récompence
-  - recompense
-  - rècompense
-  - rêcompense
-  replace: récompense
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - referance
-  - reference
-  replace: référence
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - region
-  - règion
-  - rêgion
-  replace: région
-  propagate_case: true
-  left_word: true
-
-- trigger: remord
-  replace: remords
-  propagate_case: true
-  word: true
-
-- triggers:
-  - republique
-  - rèpublique
-  replace: république
-  propagate_case: true
-  left_word: true
-
-- trigger: résorbtion
-  replace: résorption
-  propagate_case: true
-  left_word: true
-
-- trigger: résouds
-  replace: résous
-  propagate_case: true
-  word: true
-
-- trigger: résoud
-  replace: résout
-  propagate_case: true
-  word: true
-
-- trigger: resultat
-  replace: résultat
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - retorique
-  - rethorique
-  - rétorique
-  - réthorique
-  - rêtorique
-  - rêthorique
-  - rètorique
-  - rèthorique
-  - rëtorique
-  - rëthorique
-  - retorique
-  - rétorique
-  - rêtorique
-  - rètorique
-  - rëtorique
-  - rhetorique
-  - rhêtorique
-  - rhètorique
-  - rhëtorique
-  replace: rhétorique
-  propagate_case: true
-  left_word: true
-
-- trigger: role
-  replace: rôle
-  propagate_case: true
-  left_word: true
-
-- trigger: si il
-  replace: s'il
-  propagate_case: true
-  word: true
-
-- triggers:
-  - satelite
-  - sattelite
-  - sattellite
-  replace: satellite
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - sénette
-  - sènette
-  - scénette
-  - scènette
-  replace: scaynète
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - sans dessus dessous
-  - sans dessus-dessous
-  - sans-dessus dessous
-  - sans-dessus-dessous
-  - sens dessus-dessous
-  - sens-dessus dessous
-  - sens-dessus-dessous
-  replace: sens dessus dessous
-  propagate_case: true
-  word: true
-
-- trigger: scéance
-  replace: séance
-  propagate_case: true
-  left_word: true
-
-- trigger: serais gré
-  replace: saurais gré
-  propagate_case: true
-  word: true
-
-- trigger: serie
-  replace: série
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - sibilin
-  - sibillin
-  - sibylin
-  - sybilin
-  - sybillin
-  - sybylin
-  - sybyllin
-  replace: sibyllin
-  propagate_case: true
-  left_word: true
-
-- trigger: syphon
-  replace: siphon
-  propagate_case: true
-  left_word: true
-
-- trigger: soubressaut
-  replace: soubresaut
-  propagate_case: true
-  left_word: true
-
-- trigger: soufrir
-  replace: souffrir
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - sous terain
-  - sous terrain
-  - sous-terain
-  - sous-terrain
-  replace: souterrain
-  propagate_case: true
-  left_word: true
-
-- trigger: spacial
-  replace: spatial
-  propagate_case: true
-  left_word: true
-
-- trigger: succédanné
-  replace: succédané
-  propagate_case: true
-  left_word: true
-
-- trigger: succédé
-  replace: succédé
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - suceseur
-  - sucesseur
-  - succeseur
-  replace: successeur
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - superieur
-  - superrieur
-  - supérrieur
-  - supèrieur
-  - supèrrieur
-  - supperieur
-  - supperrieur
-  - suppérieur
-  - suppérrieur
-  - suppèrieur
-  - suppèrrieur
-  replace: supérieur
-  propagate_case: true
-  left_word: true
-
-- trigger: suport
-  replace: support
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - sincrone
-  - sinchrone
-  - syncrone
-  replace: synchrone
-  propagate_case: true
-  left_word: true
-
-- trigger: syphillis
-  replace: syphilis
-  propagate_case: true
-  word: true
-
-- trigger: t'il
-  replace: t-il
-  propagate_case: true
-  word: true
-
-- trigger: tamt
-  replace: tant
-  propagate_case: true
-  word: true
-
-- triggers:
-  - tampis
-  - tanpis
-  replace: tant pis
-  propagate_case: true
-  word: true
-
-- triggers:
-  - téléscope
-  - télèscope
-  - télêscope
-  - télëscope
-  - teléscope
-  - telescope
-  - telèscope
-  - telêscope
-  - telëscope
-  - tèléscope
-  - tèlescope
-  - tèlèscope
-  - tèlêscope
-  - tèlëscope
-  - têléscope
-  - têlescope
-  - têlèscope
-  - têlêscope
-  - têlëscope
-  - tëléscope
-  - tëlescope
-  - tëlèscope
-  - tëlêscope
-  - tëlëscope
-  replace: télescope
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - téatre
-  - téathre
-  - teatre
-  - teathre
-  - tèatre
-  - tèathre
-  - têatre
-  - têathre
-  - tëatre
-  - tëathre
-  - théatre
-  - théathre
-  - theatre
-  - theathre
-  - thèatre
-  - thèathre
-  - thêatre
-  - thêathre
-  - thëatre
-  - thëathre
-  replace: théâtre
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - théme
-  - theme
-  - thême
-  - thëme
-  replace: thème
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - timbre postes
-  - timbre-postes
-  replace: timbre-poste
-  propagate_case: true
-  word: true
-
-- triggers:
-  - timbres postes
-  - timbres-postes
-  replace: timbres-poste
-  propagate_case: true
-  word: true
-
-- trigger: tonnal
-  replace: tonal
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - tonére
-  - tonérre
-  - tonere
-  - tonerre
-  - tonère
-  - tonèrre
-  - tonêre
-  - tonêrre
-  - tonëre
-  - tonërre
-  - tonnére
-  - tonnérre
-  - tonnere
-  - tonnère
-  - tonnèrre
-  - tonnêre
-  - tonnêrre
-  - tonnëre
-  - tonnërre
-  replace: tonnerre
-  propagate_case: true
-  left_word: true
-
-- trigger: toponomie
-  replace: toponymie
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - tout a coup
-  - tout a-coup
-  - tout à-coup
-  - tout-a-coup
-  - tout-à-coup
-  replace: tout à coup
-  propagate_case: true
-  word: true
-
-- triggers:
-  - tout a fait
-  - tout a-fait
-  - tout à fait
-  - tout à-fait
-  - tout-a-fait
-  - tout-à-fait
-  replace: tout à fait
-  propagate_case: true
-  word: true
-
-- trigger: traffic
-  replace: trafic
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - tranquilité
-  - tranquilitée
-  - tranquillitée
-  replace: tranquillité
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - tranquilament
-  - tranquilement
-  - tranquilamment
-  - tranquilemment
-  - tranquillament
-  - tranquillamment
-  - tranquillemment
-  replace: tranquillement
-  propagate_case: true
-  word: true
-
-- trigger: trés
-  replace: très
-  propagate_case: true
-  word: true
-
-- trigger: trone
-  replace: trône
-  propagate_case: true
-  left_word: true
-
-- trigger: util
-  replace: utile
-  propagate_case: true
-  word: true
-
-- triggers:
-  - vaillament
-  - vaillement
-  - vaillemment
-  replace: vaillamment
-  propagate_case: true
-  word: true
-
-- trigger: vainct
-  replace: vainc
-  propagate_case: true
-  word: true
-
-- trigger: valeure
-  replace: valeur
-  propagate_case: true
-  left_word: true
-
-- triggers:
-  - velour
-  - veloure
-  - veloures
-  - vellour
-  - vellours
-  - velloure
-  - velloures
-  replace: velours
-  propagate_case: true
-  word: true
-
-- trigger: vertue
-  replace: vertu
-  propagate_case: true
-  left_word: true
-
-- trigger: s video
-  replace: s vidéo
-  propagate_case: true
-
-- triggers:
-  - violament
-  - violamment
-  replace: violemment
-  propagate_case: true
-  word: true
-
-- trigger: voierie
-  replace: voirie
-  propagate_case: true
-  left_word: true
-
-- trigger: vraissemblable
-  replace: vraisemblable
-  propagate_case: true
-  left_word: true
-
-- trigger: waggon
-  replace: wagon
-  propagate_case: true
-  left_word: true
-
-- trigger: y a t'il
-  replace: y a-t-il
-  propagate_case: true
-  word: true
-
-- trigger: yatch
-  replace: yacht
-  propagate_case: true
-  left_word: true
-
-- regex: (?P<num>\d+)(?P<suffix>i?[èeé]re?s?|de?s?|i?[èeé]?me?s?|es?)\b(?P<next>\s\S|\S)
-  replace: "{{output}}{{next}}"
+- trigger: ies
+  replace: "{{output}}"
   vars:
   - name: output
-    type: script
-    params:
-      args: [python, "%CONFIG%/scripts/fix_superscripts.py", "{{num}}", "{{suffix}}", "0"]
-
-# - regex: 1i?(?P<suffix>[èeé]re?s?)\b(?P<next>\s\S|\S)
-#   html: "1<sup>{{suffix}}</sup>{{next}}"
-#   paragraph: true
-#   propagate_case: true
-#   word: true
-
-# - regex: 2(?:o?n)?(?P<suffix>de?s?)\b(?P<next>\s\S|\S)
-#   html: 2<sup>{{suffix}}</sup>{{next}}
-#   paragraph: true
-#   propagate_case: true
-#   word: true
-
-# - regex: (?P<num>[2-9]\d*)(?:i?[èeé]?m)?(?P<suffix>es?)\b(?P<next>\s\S|\S)
-#   html: "{{num}}<sup>{{suffix}}</sup>{{next}}"
-#   paragraph: true
-#   propagate_case: true
-#   word: true
-
-- regex: (?P<num>\d+)(?P<suffix>[èe](?:me)?|er) siècle\b(?P<next>\s\S|\S)
-  html: "{{roman}}<sup>{{suffix}}</sup> siècle{{next}}"
-  vars:
-  - name: roman
-    type: script
-    params:
-      args: [python, "%CONFIG%/scripts/to_roman.py", "{{num}}"]
-  word: true
-
-- regex: "Acte (?P<num>\\d+)\\b(?P<next>\\s\\S|\\+S)"
-  replace: "Acte {{roman}}{{next}}"
-  vars:
-  - name: roman
-    type: script
-    params:
-      args: [python, "%CONFIG%/to_roman.py", "{{num}}"]
-
-- trigger: Auguste Janvier
-  replace: Auguste Janvier
-  propagate_case: true
-  word: true
-
-- trigger: Monsieur Janvier
-  replace: Monsieur Janvier
-  propagate_case: true
-  word: true
-
-- trigger: Champ de Mars
-  replace: Champ de Mars
-  propagate_case: true
-  word: true
-
-- trigger: Champs de Mars
-  replace: Champs de Mars
-  propagate_case: true
-  word: true
-
-- trigger: planète Mars
-  replace: planète Mars
-  propagate_case: true
-  word: true
-
-- trigger: sur Mars
-  replace: sur Mars
-  propagate_case: true
-  word: true
-
-- trigger: Maréchal Juin
-  replace: Maréchal Juin
-  propagate_case: true
-  word: true
-
-- trigger: monarchie de Juillet
-  replace: monarchie de Juillet
-  propagate_case: true
-  word: true
-
-- trigger: révolution de Juillet
-  replace: révolution de Juillet
-  propagate_case: true
-  word: true
-
-- trigger: insurrection d'Octobre
-  replace: insurrection d'Octobre
-  propagate_case: true
-  word: true
-
-- trigger: révolution d'Octobre
-  replace: révolution d'Octobre
-  propagate_case: true
-  word: true
-
-- trigger: kms
-  replace: km
-  propagate_case: true
-  word: true
-
-- trigger: "kW/h"
-  replace: kWh
-  propagate_case: true
-  word: true
-
-- trigger: "etc..."
-  replace: "etc."
-  propagate_case: true
-  word: true
-
-- trigger: "etc…"
-  replace: "etc."
-  propagate_case: true
-  word: true
-
-- trigger: "ex :"
-  replace: "ex. :"
-  propagate_case: true
-  word: true
-
-- trigger: "ex:"
-  replace: "ex. :"
-  propagate_case: true
-  word: true
-
-- trigger: de la powiat
-  replace: du powiat
-  propagate_case: true
-  word: true
-
-- trigger: la powiat
-  replace: le powiat
-  propagate_case: true
-  word: true
-
-- trigger: bijous
-  replace: bijoux
-  propagate_case: true
-  word: true
-
-- trigger: caillous
-  replace: cailloux
-  propagate_case: true
-  word: true
-
-- trigger: chous
-  replace: choux
-  propagate_case: true
-  word: true
-
-- trigger: genous
-  replace: genoux
-  propagate_case: true
-  word: true
-
-- trigger: hibous
-  replace: hiboux
-  propagate_case: true
-  word: true
-
-- trigger: joujous
-  replace: joujoux
-  propagate_case: true
-  word: true
-
-- trigger: pous
-  replace: poux
-  propagate_case: true
-  word: true
-
-- trigger: bisoux
-  replace: bisous
-  propagate_case: true
-  word: true
-
-- trigger: calin
-  replace: câlin
-  propagate_case: true
-  word: true
-
-- trigger: grace à
-  replace: grâce à
-  propagate_case: true
-  word: true
-
-- trigger: voire même
-  replace: voire
-  propagate_case: true
-  word: true
-
-- triggers:
-  - but final
-  - but ultime
-  replace: but
-  propagate_case: true
-  word: true
-
-- trigger: car en effet
-  replace: car
-  propagate_case: true
-  word: true
-
-- trigger: puis ensuite
-  replace: puis
-  propagate_case: true
-  word: true
-
-- trigger: faux prétexte
-  replace: prétexte
-  propagate_case: true
-  word: true
-
-- trigger: comme par exemple
-  replace: comme
-  propagate_case: true
-  word: true
-
-- trigger: comme, par exemple,
-  replace: comme
-  propagate_case: true
-  word: true
-
-- trigger: armoirie
-  replace: armoiries
-  propagate_case: true
-  word: true
-
-- trigger: brebi
-  replace: brebis
-  propagate_case: true
-  word: true
-
-- trigger: concour
-  replace: concours
-  propagate_case: true
-  word: true
-
-- trigger: danseurs étoile
-  replace: danseurs étoiles
-  propagate_case: true
-  word: true
-
-- trigger: danseuses étoile
-  replace: danseuses étoiles
-  propagate_case: true
-  word: true
-
-- triggers:
-  - en cheffe
-  - en cheffes
-  replace: en chef
-  propagate_case: true
-  word: true
-
-- trigger: films cultes
-  replace: films culte
-  propagate_case: true
-  word: true
-
-- trigger: les leur
-  replace: les leurs
-  propagate_case: true
-  word: true
-
-- trigger: les même
-  replace: les mêmes
-  propagate_case: true
-  word: true
-
-- trigger: poid
-  replace: poids
-  propagate_case: true
-  word: true
-
-- trigger: quatres
-  replace: quatre
-  propagate_case: true
-  word: true
-
-- trigger: quatre vingts
-  replace: quatre-vingts
-  propagate_case: true
-  word: true
-
-- trigger: quelque fois
-  replace: quelques fois
-  propagate_case: true
-  word: true
-
-- trigger: volontier
-  replace: volontiers
-  propagate_case: true
-  word: true
-
-- trigger: un échappatoire
-  replace: une échappatoire
-  propagate_case: true
-  word: true
-
-- trigger: une mannequin
-  replace: un mannequin
-  propagate_case: true
-  word: true
-
-- trigger: parcour
-  replace: parcours
-  propagate_case: true
-  word: true
-
-- triggers:
-  - dééval
-  - déeval
-  - deéval
-  - deeval
-  - dé-éval
-  - dé-eval
-  - de-éval
-  - de-eval
-  - dé-val
-  - dé-val
-  - de-val
-  - de-val
-  replace: déval
-
-- regex: (?P<output>salaires? (?:des|du|d'une?|de la) fonctionnaires?)
-  replace: "{{output}}{{_}}"
-  propagate_case: true
-  left_word: true
-  vars:
-  - name: _
     type: shell
     params:
-      cmd: notify-send "Le salaire des fonctionnaires s'appelle le traitement." "Juste pour information..."
+      cmd: echo SW1lbiBFcw== | base64 -d
+  propagate_case: true
+  word: true
 
-- regex: (?P<output>traitements? (?:des|du|d'une?|de la) fonctionnaires?)
-  replace: "{{output}}{{_}}"
+- trigger: terr
+  replace: territoire
+  propagate_case: true
+  word: true
+
+- trigger: terrs
+  replace: territoires
+  propagate_case: true
+  word: true
+
+- trigger: s terr
+  replace: s territoires
+  propagate_case: true
+  right_word: true
+
+- trigger: Egypte
+  replace: Égypte
+  propagate_case: true
+  word: true
+
+- trigger: dbd
+  replace: d'abord
+  propagate_case: true
+  word: true
+
+- triggers:
+  - occ
+  - occd
+  replace: occidental
+  propagate_case: true
+  word: true
+
+- triggers:
+  - Europe occ
+  - Europe occd
+  - Europe occde
+  replace: Europe occidentale
+  propagate_case: true
+  word: true
+
+- trigger: orl
+  replace: oriental
+  propagate_case: true
+  word: true
+
+- trigger: orle
+  replace: orientale
+  propagate_case: true
+  word: true
+
+- trigger: orles
+  replace: orientales
+  propagate_case: true
+  word: true
+
+- triggers:
+  - Europe orl
+  - Europe orle
+  replace: Europe orientale
+  propagate_case: true
+  word: true
+
+- trigger: univ
+  replace: université
+  propagate_case: true
+  word: true
+
+- trigger: univs
+  replace: universités
+  propagate_case: true
+  word: true
+
+- trigger: cts
+  replace: centres
+  propagate_case: true
+  word: true
+
+- trigger: lps
+  replace: les plus
+  propagate_case: true
+  word: true
+
+- trigger: lms
+  replace: les moins
+  propagate_case: true
+  word: true
+
+- trigger: pgd
+  replace: plus grand
+  propagate_case: true
+  word: true
+
+- trigger: la pgd
+  replace: la plus grande
+  propagate_case: true
+  word: true
+
+- trigger: celle pgd
+  replace: celle plus grande
+  propagate_case: true
+  word: true
+
+- trigger: ert
+  replace: et
+  propagate_case: true
+  word: true
+
+- regex: \ba(?P<year>\d0)
+  replace: "années 19{{year}}"
+  propagate_case: true
+  word: true
+
+- triggers:
+  - psc
+  - puiss
+  replace: puissance
+  propagate_case: true
+  word: true
+
+- trigger: pscs
+  replace: puissances
+  propagate_case: true
+  word: true
+
+- triggers:
+  - s psc
+  - s pscs
+  - s puiss
+  replace: s puissances
+  propagate_case: true
+  right_word: true
+
+- trigger: Taiwan
+  replace: Taïwan
+  propagate_case: true
+  word: true
+
+- trigger: proc
+  replace: processus
+  propagate_case: true
+  word: true
+
+- trigger: /proc
+  replace: /proc
+  propagate_case: true
+
+- trigger: lme
+  replace: le
+  propagate_case: true
+  word: true
+
+- triggers:
+  - eds
+  - dfes
+  replace: des
+  propagate_case: true
+  word: true
+
+- trigger: colmp
+  replace: comp
+  propagate_case: true
+
+- trigger: fct
+  replace: fonction
+  propagate_case: true
+  word: true
+
+- trigger: fcts
+  replace: fonctions
+  propagate_case: true
+  word: true
+
+- trigger: LEs
+  replace: Les
+  right_word: true
+
+- trigger: quand à
+  replace: quant à
+  right_word: true
+
+- trigger: lke
+  replace: le
   propagate_case: true
   left_word: true
-  vars:
-  - name: _
-    type: shell
-    params:
-      cmd: notify-send "Enfin des gens intelligents..." "Ils ont ENFIN compris que le salaire des fonctionnaires, ça s'appelle le traitement..."
+
+- trigger: coeur
+  replace: cœur
+  propagate_case: true
+
+- trigger: mde
+  replace: monde
+  propagate_case: true
+  word: true
+
+- trigger: mdes
+  replace: mondes
+  propagate_case: true
+  word: true
+
+- regex: (?P<n>[Nn])(?P<e>[Ee]) (?P<match>(?:\d{4,}|\d{2})\W)
+  replace: "{{e}}{{n}} {{match}}"
+
+- trigger: éq
+  replace: équation
+  propagate_case: true
+  word: true
+
+- trigger: l'éq
+  replace: l'équation
+  propagate_case: true
+  word: true
+
+- trigger: éqs
+  replace: équations
+  propagate_case: true
+  word: true
+
+- trigger: équa
+  replace: équation
+  propagate_case: true
+  word: true
+
+- trigger: l'équa
+  replace: l'équation
+  propagate_case: true
+  word: true
+
+- trigger: équas
+  replace: équations
+  propagate_case: true
+  word: true
+
+- trigger: l'ed
+  replace: l'équation différentielle
+  propagate_case: true
+  word: true
+
+- trigger: cve
+  replace: ce
+  propagate_case: true
+  right_word: true
+
+- trigger: cves
+  replace: ces
+  propagate_case: true
+  right_word: true
+
+- trigger: NN
+  replace: ℕ
+  propagate_case: true
+  word: true
+
+- trigger: RR
+  replace: ℝ
+  propagate_case: true
+  word: true
+
+- trigger: \forall
+  replace: ∀
+  propagate_case: true
+  word: true
+
+- trigger: \in
+  replace: ∈
+  propagate_case: true
+  word: true
+
+- trigger: C inr
+  replace: C est une constante réelle
+  propagate_case: true
+  word: true
+
+- trigger: une sol
+  replace: une solution
+  propagate_case: true
+  word: true
+
+- trigger: la sol
+  replace: la solution
+  propagate_case: true
+  word: true
+
+- triggers:
+  - les sol
+  - les sols
+  replace: les solutions
+  propagate_case: true
+  word: true

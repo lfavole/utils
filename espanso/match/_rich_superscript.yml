@@ -1,0 +1,8 @@
+matches:
+- regex: (?P<num>\d+)(?P<suffix>i?[èeé]r(?:es?|s)?|d(?:es?|s)|i?[èeé]?m(?:es?|s)|es?)\b(?P<next>\s\S|\S)
+  html: "{{output}}{{next}}"
+  vars:
+  - name: output
+    type: script
+    params:
+      args: [python, "%CONFIG%/scripts/fix_superscripts.py", "{{num}}", "{{suffix}}", "1"]
