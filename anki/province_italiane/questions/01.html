@@ -1,0 +1,19 @@
+Capoluogo -> provincia
+---
+{{#Domanda nome}}
+<p>
+    <span class="question">{{Capoluogo}}</span>
+    è il capoluogo di quale
+    <span class="question-word">provincia</span>&nbsp;?
+</p>
+{{/Domanda nome}}
+---
+<p>
+    <span class="question">{{Capoluogo}}</span>
+    è il capoluogo della
+    <span class="question-word">provincia</span>
+    <span class="answer">
+        {{Provincia}}
+        <small>({{Sigla}})</small></span>.
+</p>
+<p class="map province">{{Mappa}}</p>
