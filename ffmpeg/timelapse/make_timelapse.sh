@@ -200,9 +200,8 @@ if [ "$yyyymmdd" -lt "$today" ]; then
   echo "Renaming $OLD_DIR directory to $NEW_DIR on FTP server..."
 
   # Use tnftp to rename the directory
-  tnftp -v -n "$FTP_SERVER" <<EOF
-quote USER "$FTP_USERNAME"
-quote PASS "$FTP_PASSWORD"
+  ENCODED_PASSWORD=$(echo "$FTP_PASSWORD" | python3 -c "import urllib.parse; print(urllib.parse.quote(input(), ''))")
+  tnftp -v -n -i "ftp://$FTP_USERNAME:$ENCODED_PASSWORD@$FTP_SERVER/" <<EOF
 rename "$OLD_DIR" "$NEW_DIR"
 bye
 EOF
