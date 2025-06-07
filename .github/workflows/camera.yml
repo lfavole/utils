@@ -42,6 +42,13 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python online/is_camera_reachable.py
 
+      - name: Restart the camera if needed
+        env:
+          CAMERA_URL: ${{ secrets.CAMERA_URL }}
+          CAMERA_USERNAME: ${{ secrets.CAMERA_USERNAME }}
+          CAMERA_PASSWORD: ${{ secrets.CAMERA_PASSWORD }}
+        run: python online/restart_camera_if_needed.py
+
       - name: Cache message ID
         uses: actions/cache/save@v4
         with:
