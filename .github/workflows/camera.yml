@@ -1,0 +1,49 @@
+name: Notify if the camera isn't reachable
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  schedule:
+    # at every 30th minute from 7:30 to 21:30 (no DST = UTC+2)
+    - cron: '30 5-19 * 4-10 *'
+    # same thing during DST (UTC+1)
+    - cron: '30 6-20 * 1-3,11-12 *'
+  workflow_dispatch:
+    inputs:
+      restoreMessageID:
+        description: 'Restore message ID'
+        required: false
+        type: boolean
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Restore message ID
+        uses: actions/cache/restore@v4
+        if: ${{ github.event_name == 'push' || github.event_name == 'pull_request' || github.event_name == 'schedule' || inputs.restoreMessageID }}
+        with:
+          path: online/.camera_message_id
+          key: message-id-${{ hashFiles('online/.camera_message_id') }}
+          restore-keys: camera-message-id-
+
+      - name: Notify if the camera isn't reachable
+        env:
+          CAMERA_URL: ${{ secrets.CAMERA_URL }}
+          CAMERA_USERNAME: ${{ secrets.CAMERA_USERNAME }}
+          CAMERA_PASSWORD: ${{ secrets.CAMERA_PASSWORD }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python online/is_camera_reachable.py
+
+      - name: Cache message ID
+        uses: actions/cache/save@v4
+        with:
+          path: online/.camera_message_id
+          key: camera-message-id-${{ hashFiles('online/.camera_message_id') }}
