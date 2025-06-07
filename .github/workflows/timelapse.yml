@@ -1,0 +1,40 @@
+name: Make timelapse
+
+on:
+  schedule:
+    # at 6:30 (no DST = UTC+2)
+    - cron: '30 4 * 4-10 *'
+    # same thing during DST (UTC+1)
+    - cron: '30 5 * 1-3,11-12 *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Date with YYYY-MM-DD format'
+        required: false
+        type: string
+
+jobs:
+  timelapse:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install ffmpeg
+        run: |
+          sudo apt update
+          sudo apt install -y ffmpeg
+
+      - name: Create the timelapse
+        env:
+          AUDIO_FILES: ${{ secrets.AUDIO_FILES }}
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_PORT: ${{ secrets.FTP_PORT }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_PATH: ${{ secrets.FTP_PATH }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_IDS: ${{ secrets.TELEGRAM_CHAT_IDS }}
+          date: ${{ inputs.date }}
+        run: python ffmpeg/timelapse/make_timelapse.py "${date:-yesterday}"
