@@ -1,6 +1,7 @@
 """Create a timelapse for a given day."""
 import atexit
 import ftplib
+import json
 import os
 import shutil
 import subprocess
@@ -8,7 +9,8 @@ import sys
 import tempfile
 from datetime import datetime, timedelta
 from pathlib import Path
-from urllib.request import urlopen
+from urllib.error import HTTPError
+from urllib.request import Request, urlopen
 
 print("Starting the script...")
 
@@ -77,7 +79,36 @@ try:
 except ftplib.error_perm as e:
     # If we get a permission error, the directory does not exist
     if str(e).startswith('550 '):
-        raise RuntimeError(f"Source FTP directory {source_ftp} does not exist.") from e
+        print(f"Source FTP directory {source_ftp} does not exist.")
+        print("Sending message on Telegram...")
+        for chat_id in TELEGRAM_CHAT_IDS:
+            request = Request(
+                f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
+                data=json.dumps({
+                    "chat_id": f"{chat_id}",
+                    "text": f"Aucune vidéo n'a été enregistrée par la caméra pour le {french_date}.",
+                    "parse_mode": "HTML",
+                }).encode(),
+                method="POST",
+            )
+            try:
+                with urlopen(request) as f:
+                    data = json.load(f)
+            except HTTPError as e:
+                error = e
+                data = json.load(e.file)
+
+            if not data["ok"] or error:
+                msg = f"Failed to call Telegram API: {data['description']}"
+                if error:
+                    new_error = RuntimeError(msg)
+                    new_error.data = data
+                    raise new_error from error
+                raise RuntimeError(msg)
+
+            print("Message sent to Telegram.")
+
+        sys.exit()
     else:
         raise
 
