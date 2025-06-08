@@ -189,7 +189,7 @@ with ftplib.FTP_TLS() as ftp:
     files = ftp.nlst()  # Get a list of file names
     # Download each file
     for filename in files:
-        if filename in (".", ".."):
+        if filename in (".", "..") or not filename.endswith(".mp4"):
             continue
         local_file_path = destination_local / filename
         with open(local_file_path, 'wb') as local_file:
@@ -205,8 +205,8 @@ print(f"Files copied from {source_ftp} to {destination_local}\n")
 # Create a file list
 filelist = TMP_DIR / "filelist.txt"
 with filelist.open('w') as f:
-    for video_file in os.listdir(destination_local):
-        if video_file.endswith('.mp4'):
+    for video_file in sorted(destination_local.iterdir()):
+        if video_file.name.endswith('.mp4'):
             f.write(f"file '{destination_local / video_file}'\n")
 print(f"File list created: {filelist}\n")
 
