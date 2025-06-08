@@ -12,6 +12,7 @@ import uuid
 from datetime import datetime, timedelta
 from pathlib import Path
 from urllib.error import HTTPError
+from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
 print("Starting the script...")
@@ -86,13 +87,14 @@ except ftplib.error_perm as e:
         for chat_id in TELEGRAM_CHAT_IDS:
             request = Request(
                 f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
-                data=json.dumps({
+                data=urlencode({
                     "chat_id": f"{chat_id}",
                     "text": f"Aucune vidéo n'a été enregistrée par la caméra pour le {french_date}.",
                     "parse_mode": "HTML",
                 }).encode(),
                 method="POST",
             )
+            error = None
             try:
                 with urlopen(request) as f:
                     data = json.load(f)
