@@ -1,12 +1,14 @@
 """Create a timelapse for a given day."""
 import atexit
 import ftplib
+import itertools
 import json
 import os
 import shutil
 import subprocess
 import sys
 import tempfile
+import uuid
 from datetime import datetime, timedelta
 from pathlib import Path
 from urllib.error import HTTPError
@@ -125,17 +127,35 @@ atexit.register(cleanup)
 
 uv_installed = False
 
+other_audio_files = []
+
+def download_ftp_file(file):
+    print(f"Downloading {file} from FTP server...")
+    with ftplib.FTP_TLS() as ftp:
+        ftp.connect(FTP_HOST, FTP_PORT)
+        ftp.login(FTP_USERNAME, FTP_PASSWORD)
+        ftp.cwd(FTP_PATH)
+        # Download the file on the FTP server
+        ret = TMP_DIR / f"{uuid.uuid4()}{Path(file).suffix}"
+        try:
+            print(f"Downloading files in directory {file}...")
+            for subfile in ftp.nlst(file):
+                if subfile in (".", ".."):
+                    continue
+                yield from download_ftp_file(file + "/" + subfile)
+            return
+        except ftplib.error_perm as e:
+            if "Not a directory" not in str(e):
+                raise
+            with ret.open("wb") as f:
+                ftp.retrbinary(f"RETR {file}", f.write)
+        print(f"File {file} downloaded to {ret} from the FTP server.")
+        yield ret
+
 for i, file in enumerate(AUDIO_FILES):
     if file[:4] == "ftp/":
-        with ftplib.FTP_TLS() as ftp:
-            ftp.connect(FTP_HOST, FTP_PORT)
-            ftp.login(FTP_USERNAME, FTP_PASSWORD)
-            ftp.cwd(FTP_PATH)
-            # Download the file on the FTP server
-            AUDIO_FILES[i] = TMP_DIR / Path(file[4:]).name
-            with AUDIO_FILES[i].open("wb") as f:
-                ftp.retrbinary(f"RETR {file[4:]}", f.write)
-            print(f"File {file[:4]} downloaded to {AUDIO_FILES[i]} the FTP server.")
+        AUDIO_FILES[i] = None
+        other_audio_files.append(list(download_ftp_file(file[4:])))
 
     if any(text in file for text in ("youtube.com", "youtu.be")):
         print(f"Audio file {file} needs to be downloaded.")
@@ -171,6 +191,13 @@ for i, file in enumerate(AUDIO_FILES):
             text=True,
         ).strip()
         print(f"{file} has been downloaded to {AUDIO_FILES[i]}")
+
+AUDIO_FILES = [*itertools.chain(
+    *(
+        other_audio_files.pop(0) if file is None else file
+        for file in AUDIO_FILES
+    )
+)]
 
 # Define destination local directory
 destination_local = TMP_DIR / yyyymmdd
