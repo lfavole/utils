@@ -285,7 +285,8 @@ for _ in AUDIO_FILES:
 filter_complex += f"concat=n={len(AUDIO_FILES)}:v=0:a=1[a]"
 
 # Complete the ffmpeg command
-ffmpeg_cmd += ['-filter_complex', filter_complex, '-map', '[v]', '-map', '[a]', '-shortest', '-b:a', '96k', '-b:v', '1200k', output_video]
+# Convert to yuv420p color space thanks to https://superuser.com/a/705070
+ffmpeg_cmd += ['-filter_complex', filter_complex, '-map', '[v]', '-map', '[a]', '-shortest', '-b:a', '96k', '-b:v', '1200k', '-pix_fmt', 'yuv420p', output_video]
 
 # Execute the ffmpeg command
 subprocess.run(ffmpeg_cmd, check=True)
