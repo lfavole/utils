@@ -1,4 +1,8 @@
-"""Check if the camera is reachable. If not, send a Telegram message."""
+"""
+Check if the camera is reachable. If not, send a Telegram message.
+
+If the weather is stormy, send the message only if the camera is reachable to unplug it.
+"""
 import json
 import os
 from base64 import b64encode
@@ -6,6 +10,8 @@ from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
+
+from weather import is_storm
 
 
 def is_host_reachable(url: str, username: str | None, password: str | None):
@@ -112,17 +118,56 @@ if MESSAGE_ID_FILE.exists():
 
 MESSAGE_ID_FILE.write_text("")
 
+message = []
+no_send_message = []
+
+OPENWEATHERMAP_API_KEY = os.getenv("OPENWEATHERMAP_API_KEY")
+if OPENWEATHERMAP_API_KEY:
+    try:
+        LATITUDE = float(os.getenv("LATITUDE", ""))
+        LONGITUDE = float(os.getenv("LONGITUDE", ""))
+    except ValueError:
+        LATITUDE = None
+        LONGITUDE = None
+    if any(item in (None, "") for item in (LATITUDE, LONGITUDE)):
+        raise ValueError("LATITUDE or LONGITUDE is empty")
+
+    try:
+        storm = is_storm(LATITUDE, LONGITUDE, OPENWEATHERMAP_API_KEY)
+    except HTTPError as e:
+        message.append(
+            "Erreur lors de la récupération de la météo :\n"
+            f"{type(e).__name__}: {e}\n"
+            "Veuillez corriger cette erreur."
+        )
+else:
+    storm = False
+
 CAMERA_URL = os.getenv("CAMERA_URL")
 if not CAMERA_URL:
     raise ValueError("CAMERA_URL is empty")
 
-CAMERA_USERNAME = os.getenv("CAMERA_USERNAME")
+CAMERA_USERNAME = os.getenv("CAMERA_USERNAME") or "admin"
 CAMERA_PASSWORD = os.getenv("CAMERA_PASSWORD")
 
-if not is_host_reachable(CAMERA_URL, CAMERA_USERNAME, CAMERA_PASSWORD):
-    message = "La caméra n'est pas connectée. Veuillez vérifier si elle est correctement branchée et si le Wi-Fi est activé."
-    print(message)
-    result = send_telegram_message(BOT_TOKEN, CHAT_ID, message)
-    MESSAGE_ID_FILE.write_text(str(result["message_id"]), "utf-8")
+is_camera_reachable = is_host_reachable(CAMERA_URL, CAMERA_USERNAME, CAMERA_PASSWORD)
+
+if not storm:
+    if not is_camera_reachable:
+        message.append(
+            "La caméra n'est pas connectée. Veuillez vérifier si elle est correctement branchée "
+            "et si le Wi-Fi est activé."
+        )
+    else:
+        no_send_message.append("La caméra est connectée et il fait beau")
 else:
-    print("La caméra est connectée")
+    if is_camera_reachable:
+        message.append("La caméra est connectée et le temps va être orageux. Veuillez la débrancher.")
+    else:
+        no_send_message.append("La caméra est déconnectée et le temps est orageux")
+
+print("\n\n".join((*message, *no_send_message)))
+
+if message:
+    result = send_telegram_message(BOT_TOKEN, CHAT_ID, "\n\n".join(message))
+    MESSAGE_ID_FILE.write_text(str(result["message_id"]), "utf-8")
