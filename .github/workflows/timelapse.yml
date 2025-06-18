@@ -21,6 +21,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install uv
+        run: curl -LsSf https://github.com/astral-sh/uv/releases/latest/download/uv-installer.sh | sh
+
       - name: Install ffmpeg
         run: |
           sudo apt update
@@ -31,10 +34,13 @@ jobs:
           AUDIO_FILES: ${{ secrets.AUDIO_FILES }}
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_PORT: ${{ secrets.FTP_PORT }}
+          HTTP_PORT: ${{ secrets.HTTP_PORT }}
+          FREEBOX_APP_TOKEN: ${{ secrets.FREEBOX_APP_TOKEN }}
+          FREEBOX_TRACK_ID: ${{ secrets.FREEBOX_TRACK_ID }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
           FTP_PATH: ${{ secrets.FTP_PATH }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_IDS: ${{ secrets.TELEGRAM_CHAT_IDS }}
           date: ${{ inputs.date }}
-        run: python ffmpeg/timelapse/make_timelapse.py "${date:-yesterday}"
+        run: uv run --with freebox_api ffmpeg/timelapse/make_timelapse.py "${date:-yesterday}"

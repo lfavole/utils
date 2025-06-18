@@ -1,4 +1,5 @@
 """Create a timelapse for a given day."""
+import asyncio
 import atexit
 import ftplib
 import itertools
@@ -20,6 +21,9 @@ print("Starting the script...")
 AUDIO_FILES = (os.getenv("AUDIO_FILES") or os.getenv("AUDIO_FILE") or "").split(",")
 FTP_HOST = os.getenv("FTP_HOST")
 FTP_PORT = int(os.getenv("FTP_PORT") or "0")
+HTTP_PORT = int(os.getenv("HTTP_PORT") or "0")
+FREEBOX_APP_TOKEN = os.getenv("FREEBOX_APP_TOKEN")
+FREEBOX_TRACK_ID = (os.getenv("FREEBOX_TRACK_ID") or "").removeprefix("track_id_")
 FTP_USERNAME = os.getenv("FTP_USERNAME") or "freebox"
 FTP_PASSWORD = os.getenv("FTP_PASSWORD", "")
 FTP_PATH = os.getenv("FTP_PATH") or "/Disque dur/Camera"
@@ -62,6 +66,32 @@ else:
 french_date += f" {french_months[date_obj.month - 1]} {date_obj.year}"
 print(f"Formatted date: {french_date}")
 
+def send_telegram_message(chat_id, text):
+    request = Request(
+        f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
+        data=urlencode({
+            "chat_id": f"{chat_id}",
+            "text": text,
+            "parse_mode": "HTML",
+        }).encode(),
+        method="POST",
+    )
+    error = None
+    try:
+        with urlopen(request) as f:
+            data = json.load(f)
+    except HTTPError as e:
+        error = e
+        data = json.load(e.file)
+
+    if not data["ok"] or error:
+        msg = f"Failed to call Telegram API: {data['description']}"
+        if error:
+            new_error = RuntimeError(msg)
+            new_error.data = data
+            raise new_error from error
+        raise RuntimeError(msg)
+
 #########################################
 # 1. Copy the files from the FTP server #
 #########################################
@@ -85,31 +115,7 @@ except ftplib.error_perm as e:
         print(f"Source FTP directory {source_ftp} does not exist.")
         print("Sending message on Telegram...")
         for chat_id in TELEGRAM_CHAT_IDS:
-            request = Request(
-                f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
-                data=urlencode({
-                    "chat_id": f"{chat_id}",
-                    "text": f"Aucune vidéo n'a été enregistrée par la caméra pour le {french_date}.",
-                    "parse_mode": "HTML",
-                }).encode(),
-                method="POST",
-            )
-            error = None
-            try:
-                with urlopen(request) as f:
-                    data = json.load(f)
-            except HTTPError as e:
-                error = e
-                data = json.load(e.file)
-
-            if not data["ok"] or error:
-                msg = f"Failed to call Telegram API: {data['description']}"
-                if error:
-                    new_error = RuntimeError(msg)
-                    new_error.data = data
-                    raise new_error from error
-                raise RuntimeError(msg)
-
+            send_telegram_message(chat_id, f"Aucune vidéo n'a été enregistrée par la caméra pour le {french_date}.")
             print("Message sent to Telegram.")
 
         sys.exit()
@@ -196,10 +202,12 @@ for i, file in enumerate(AUDIO_FILES):
 
 AUDIO_FILES = [*itertools.chain(
     *(
-        other_audio_files.pop(0) if file is None else file
+        other_audio_files.pop(0) if file is None else [file]
         for file in AUDIO_FILES
     )
 )]
+# if there are remaining files, add them
+AUDIO_FILES.extend(other_audio_files)
 
 # Define destination local directory
 destination_local = TMP_DIR / yyyymmdd
@@ -292,38 +300,8 @@ ffmpeg_cmd += ['-filter_complex', filter_complex, '-map', '[v]', '-map', '[a]', 
 subprocess.run(ffmpeg_cmd, check=True)
 print(f"Final video created: {output_video}\n")
 
-#################################
-# 4. Send the video to Telegram #
-#################################
-
-print("Sending video to Telegram...")
-for chat_id in TELEGRAM_CHAT_IDS:
-    subprocess.run(
-        [
-            "curl",
-            "--fail-with-body",
-            "-s",
-            "-X",
-            "POST",
-            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendVideo",
-            "-F",
-            f"chat_id={chat_id}",
-            "-F",
-            f"video=@{output_video}",
-            "-F",
-            f"caption=Vidéo du {french_date}",
-            "-F",
-            "parse_mode=HTML",
-        ],
-        check=True,
-    )
-    print()
-    print("Video sent to Telegram.")
-
-print()
-
 #############################################
-# 5. Rename the directory on the FTP server #
+# 4. Rename the directory on the FTP server #
 #############################################
 
 # Directories
@@ -346,7 +324,7 @@ else:
 print()
 
 ##########################################
-# 6. Back up the video to the FTP server #
+# 5. Back up the video to the FTP server #
 ##########################################
 
 video_dir_ftp = f"{FTP_PATH}/videos"
@@ -369,4 +347,60 @@ with ftplib.FTP_TLS() as ftp:
         ftp.storbinary(f"STOR {output_video.name}", f)
 
 print("File backed up.")
+
+#################################
+# 6. Send the video to Telegram #
+#################################
+
+try:
+    from freebox_api import Freepybox
+    sys.path.insert(0, str(Path(__file__).parent.parent.parent / "online"))
+    from get_freebox_share_path import get_freebox_share_path
+except ModuleNotFoundError as e:
+    print(f"{type(e).__name__}: {e}")
+    print("Sending video file to Telegram...")
+    for chat_id in TELEGRAM_CHAT_IDS:
+        subprocess.run(
+            [
+                "curl",
+                "--fail-with-body",
+                "-s",
+                "-X",
+                "POST",
+                f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendVideo",
+                "-F",
+                f"chat_id={chat_id}",
+                "-F",
+                f"video=@{output_video}",
+                "-F",
+                f"caption=Vidéo du {french_date}",
+                "-F",
+                "parse_mode=HTML",
+            ],
+            check=True,
+        )
+        print()
+        print("Video sent to Telegram.")
+else:
+    async def get_url():
+        def new_readfile_app_token(self, _):
+            return (FREEBOX_APP_TOKEN, FREEBOX_TRACK_ID, self.app_desc)
+
+        Freepybox._readfile_app_token = new_readfile_app_token
+        fbx = Freepybox(api_version="v8")
+        try:
+            await fbx.open(FTP_HOST, HTTP_PORT)
+            return await get_freebox_share_path(fbx, f"{video_dir_ftp}/{output_video.name}", video_dir_ftp)
+        finally:
+            await fbx.close()
+
+    url = asyncio.run(get_url())
+
+    print("Sending video link to Telegram...")
+    for chat_id in TELEGRAM_CHAT_IDS:
+        send_telegram_message(chat_id, f"Vidéo du {french_date}\n{url}")
+        print("Message sent to Telegram.")
+
+print()
+
 print("Script completed.")
