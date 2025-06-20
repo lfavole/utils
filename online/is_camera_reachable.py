@@ -121,26 +121,23 @@ MESSAGE_ID_FILE.write_text("")
 message = []
 no_send_message = []
 
-OPENWEATHERMAP_API_KEY = os.getenv("OPENWEATHERMAP_API_KEY")
-if OPENWEATHERMAP_API_KEY:
-    try:
-        LATITUDE = float(os.getenv("LATITUDE", ""))
-        LONGITUDE = float(os.getenv("LONGITUDE", ""))
-    except ValueError:
-        LATITUDE = None
-        LONGITUDE = None
-    if any(item in (None, "") for item in (LATITUDE, LONGITUDE)):
-        raise ValueError("LATITUDE or LONGITUDE is empty")
+try:
+    LATITUDE = float(os.getenv("LATITUDE", ""))
+    LONGITUDE = float(os.getenv("LONGITUDE", ""))
+except ValueError:
+    LATITUDE = None
+    LONGITUDE = None
+if any(item in (None, "") for item in (LATITUDE, LONGITUDE)):
+    raise ValueError("LATITUDE or LONGITUDE is empty")
 
-    try:
-        storm = is_storm(LATITUDE, LONGITUDE, OPENWEATHERMAP_API_KEY)
-    except HTTPError as e:
-        message.append(
-            "Erreur lors de la récupération de la météo :\n"
-            f"{type(e).__name__}: {e}\n"
-            "Veuillez corriger cette erreur."
-        )
-else:
+try:
+    storm = is_storm(LATITUDE, LONGITUDE)
+except HTTPError as e:
+    message.append(
+        "Erreur lors de la récupération de la météo :\n"
+        f"{type(e).__name__}: {e}\n"
+        "Veuillez corriger cette erreur."
+    )
     storm = False
 
 CAMERA_URL = os.getenv("CAMERA_URL")
