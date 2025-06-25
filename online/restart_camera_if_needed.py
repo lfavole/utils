@@ -3,8 +3,12 @@ import base64
 import os
 import random
 import re
+import socket
 import sys
+from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
+
+socket.setdefaulttimeout(10)
 
 CAMERA_URL = os.getenv("CAMERA_URL", "")
 CAMERA_USERNAME = os.getenv("CAMERA_USERNAME", "") or "admin"
@@ -16,6 +20,15 @@ if not CAMERA_PASSWORD:
     raise ValueError("CAMERA_PASSWORD is empty")
 
 auth_header = {"Authorization": "Basic " + base64.b64encode(f"{CAMERA_USERNAME}:{CAMERA_PASSWORD}".encode()).decode()}
+
+# Check if the camera is online. If not, stop here
+try:
+    with urlopen(Request(CAMERA_URL, headers=auth_header)) as f:
+        response = f.read().decode()
+except HTTPError:
+    raise
+except URLError:
+    sys.exit()
 
 # Make a GET query to fetch the logs
 log_url = f"{CAMERA_URL}/stslog_data.asp"
