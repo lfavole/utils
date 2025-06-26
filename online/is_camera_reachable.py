@@ -156,12 +156,15 @@ if not storm:
             "et si le Wi-Fi est activé."
         )
     else:
-        no_send_message.append("La caméra est connectée et il fait beau")
+        no_send_message.append("La caméra est connectée et il fait beau.")
 else:
     if is_camera_reachable:
         message.append("La caméra est connectée et le temps va être orageux. Veuillez la débrancher.")
     else:
-        no_send_message.append("La caméra est déconnectée et le temps est orageux")
+        message.append(
+            "La caméra est déconnectée et le temps est orageux.\n"
+            "Est-ce une erreur ? Peut-être, peut-être pas."
+        )
 
 print("\n\n".join((*message, *no_send_message)))
 
