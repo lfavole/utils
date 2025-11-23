@@ -79,7 +79,7 @@ def cal_token(token1, token2, token3, token4):
     return ret
 
 
-# Generate a random number between 1 et 200
+# Generate a random number between 1 and 200
 TOKEN = random.randint(1, 200)
 
 # Make the GET request to get the encoded string
