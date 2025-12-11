@@ -12,6 +12,10 @@ on:
         description: 'Date with YYYY-MM-DD format'
         required: false
         type: string
+      redo:
+        description: 'Redo'
+        required: false
+        type: boolean
 
 jobs:
   timelapse:
@@ -34,6 +38,7 @@ jobs:
           AUDIO_FILES: ${{ secrets.AUDIO_FILES }}
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_PORT: ${{ secrets.FTP_PORT }}
+          FTP_TLS: ${{ secrets.FTP_TLS }}
           HTTP_PORT: ${{ secrets.HTTP_PORT }}
           FREEBOX_APP_TOKEN: ${{ secrets.FREEBOX_APP_TOKEN }}
           FREEBOX_TRACK_ID: ${{ secrets.FREEBOX_TRACK_ID }}
@@ -42,5 +47,6 @@ jobs:
           FTP_PATH: ${{ secrets.FTP_PATH }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_IDS: ${{ secrets.TELEGRAM_CHAT_IDS }}
+          REDO: ${{ inputs.REDO }}
           date: ${{ inputs.date }}
-        run: uv run --with freebox_api ffmpeg/timelapse/make_timelapse.py "${date:-yesterday}"
+        run: uv run --with freebox_api ffmpeg/timelapse/make_timelapse_ci.py "${date:-yesterday}"
