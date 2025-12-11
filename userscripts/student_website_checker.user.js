@@ -48,6 +48,9 @@
         return formatNumber(size) + " " + prefixes[0] + "o";
     };
 
+    // Source: https://stackoverflow.com/a/11550799
+    let getWordsNumber = text => text.replace(/<[^>]*>/g, " ").replace(/[-'’]/, "").trim().split(/[^a-z\u00E0-\u00FC]+/gi).length;
+
     // Part 1: Create the table and display the data
     if (location.pathname.includes("/mod/page/view.php")) {
         if (!document.querySelector("h1")?.textContent.includes("Liste de vos mini-sites"))
@@ -68,13 +71,16 @@
             files:         {name: "F",      fullName: "Nombre total de fichiers",                            type: "number",  crit: x => x < 10 ? 1 : x < 20 ? 0.5 : 0},
             fonts:         {name: "Fts",    fullName: "Nombre de polices",                                   type: "number",  crit: x => x == 0 ? 0 : x == 2 || x == 3 ? 1 : 0.5},
             customFonts:   {name: "CF",     fullName: "Nombre de polices personnalisées",                    type: "number"},
-            size:          {name: "Taille", fullName: "Taille totale du site",                               type: "size"},
             googleFonts:   {name: "GF",     fullName: "Le site utilise-t-il Google Fonts ?",                 type: "boolean"},
+            size:          {name: "Taille", fullName: "Taille totale du site",                               type: "size",    crit: x => x < 500 * 1024 ? 0.5 : x < 10 * 1024 ** 2 ? 1 : 0},
             bigFiles:      {name: "Gros",   fullName: "Y a-t-il des gros fichiers (de plus de 1 Mo) ?",      type: "boolean", crit: x => !x},
-            firstPerson:   {name: "PP",     fullName: "Le site est-il rédigé à la première personne ?",      type: "boolean"},
+            firstPerson:   {name: "PP",     fullName: "Le site est-il rédigé à la première personne ?",      type: "boolean", crit: x => x},
             youtubeVideos: {name: "YT",     fullName: "Nombre de vidéos YouTube",                            type: "number",  crit: x => x == 0 ? 0 : x == 1 ? 1 : 0.5},
-            externalLinks: {name: "LE",     fullName: "Nombre de liens externes",                            type: "number"},
+            externalLinks: {name: "LE",     fullName: "Nombre de liens externes",                            type: "number",  crit: x => x < 5 ? 0 : x < 10 ? 1 : 0.5},
             invalidLinks:  {name: "LI",     fullName: "Nombre de liens incorrects",                          type: "number",  crit: x => x == 0},
+            words:         {name: "W",      fullName: "Nombre de mots",                                      type: "number",  crit: x => x < 600 ? 0 : x < 900 ? 0.5 : x < 1500 ? 1 : 0},
+            wordsPerPage:  {name: "W/P",    fullName: "Nombre moyen de mots par page",                       type: "number",  crit: x => x < 200 ? 0 : x < 300 ? 0.5 : x < 500 ? 1 : 0},
+            namePresent:   {name: "N",      fullName: "Y a-t-il le nom de l'étudiant·e sur son site ?",      type: "boolean", crit: x => x},
         };
 
         // pop-up that will fetch the data for us
@@ -119,12 +125,14 @@
                         element.target = "_blank";
                     }
                 }
+                // clean up the cell
+                cell.className = "";
+                cell.title = "";
+                element.textContent = "";
                 // keep a reference to the value for comparisons or to get the criterion result
                 let value = data[href][key];
                 // stop early if the value hasn't been filled yet
                 if (value == null) {
-                    cell.className = "";
-                    element.textContent = "";
                     continue;
                 }
                 let displayValue = value;
@@ -137,6 +145,7 @@
                     value = new Date(value);
                     cell.dataset.sort = +value;
                     displayValue = +value ? value.toLocaleDateString() : "";
+                    element.title = value.toLocaleString();
                 }
                 if (item.type == "number") {
                     cell.dataset.sort = value;
@@ -227,17 +236,17 @@
         /* Add some borders and padding */
         th, td {
             border: 1px solid black;
-            padding: 0.25em 0.5em;
+            padding: 0.25em 0.35em;
+            text-align: center;
         }
         tr:nth-child(2n) {background: #ddd;}
         tr.you {background: #ff8;}
         th:first-child, td:first-child {
             padding: 0.25em;
-            text-align: center;
         }
         /* Reduce the width of the first name and last name, so that everything fits in */
-        td:nth-child(2) {max-width: 90px;}
-        td:nth-child(3) {max-width: 130px;}
+        th:nth-child(2), td:nth-child(2) {max-width: 70px;  text-align: left}
+        th:nth-child(3), td:nth-child(3) {max-width: 100px; text-align: left}
         td:nth-child(2), td:nth-child(3) {
             overflow: hidden;
             white-space: nowrap;
@@ -267,6 +276,11 @@
         document.head.appendChild(script);
 
         window.addEventListener("message", async e => {
+            // if there was an error in the pop-up, show it
+            if (e.data.error) {
+                alert(e.data.error);
+                return;
+            }
             // if we got all the data, stop sending the URLs to the pop-up and close it
             if (e.data.end) {
                 clearInterval(intv);
@@ -302,7 +316,8 @@
         intv = setInterval(() => {
             if (w && !w.closed) {
                 // if the window is open, send the links to it
-                w.postMessage(links.map(link => link.href), "*");
+                // w.postMessage(links.map(link => link.href), "*");
+                w.postMessage(Object.entries(data).map(([link, obj]) => ({...obj, link})), "*");
             } else {
                 // choose a random website to open
                 let url = new URL(links[Math.floor(Math.random() * links.length)].href);
@@ -339,7 +354,8 @@
             };
 
             // get the results for all the pages, don't stop at the first error
-            await Promise.allSettled(e.data.map(async origStartPage => {
+            await Promise.allSettled(e.data.map(async origObject => {
+                let origStartPage = origObject.link;
                 // We need to keep origStartPage as it's the key
                 // to add the data back into the table
 
@@ -355,6 +371,9 @@
                 let usedGoogleFonts = new Set();
                 // unique external links
                 let externalLinks = new Set();
+                // total words in the navigation bar and in the footer
+                let totalNavWords = 0;
+                let totalFooterWords = 0;
                 while (file = pendingFiles.shift()) {
                     // don't continue if we already have the information
                     if (files[file])
@@ -413,8 +432,21 @@
                         fileInfo.cssFiles = (text.match(/<style/g) || []).length;
                         fileInfo.htmlComments = (text.match(/<!--/g) || []).length;
                         fileInfo.firstPerson = (text.match(/je |j'/g) || []).length >= 5;
-                        youtubeIds = [...text.matchAll(/<iframe[^>]+src=(["']).*?youtube.*\/(.+?)\1/g)].map(x => x[2]);
+                        youtubeIds = [...text.matchAll(/<iframe[^>]+src=(["']).*?youtube.*\/(.+?)\1/gs)].map(x => x[2]);
                         fileInfo.youtubeVideos = youtubeIds.length;
+
+                        let bodyContent = (text.match(/(?:<body[^>]*>|^)(.*?)(?:<\/body>|$)/s) || ["", text])[1];
+                        let navContent = "";
+                        let footerContent = "";
+                        bodyContent = bodyContent.replace(/<nav[^>]*>(.*?)<\/nav>/s, (_, c) => (navContent = c, ""));
+                        bodyContent = bodyContent.replace(/<footer[^>]*>(.*?)<\/footer>/s, (_, c) => (footerContent = c, ""));
+
+                        // Source: https://stackoverflow.com/a/6969486
+                        fileInfo.namePresent = !!removeAccents(bodyContent).match(new RegExp(removeAccents(origObject.prenom).replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+
+                        totalNavWords += getWordsNumber(navContent);
+                        fileInfo.words = fileInfo.wordsPerPage = getWordsNumber(bodyContent);
+                        totalFooterWords += getWordsNumber(footerContent);
 
                     } else if (contentType.includes("text/css")) {
                         links = [...text.matchAll(/@import\s+url\((["']?)(.*?)\1\)/g)].map(x => x[2]);
@@ -449,40 +481,58 @@
                             return;
                         return new URL(page).protocol.includes("http") && new URL(page).host != new URL(startPage).host;
                     })]);
+
+                    // check for the oldest file, it's the only way to get an approximation of the website creation date
+                    let date = Object.values(files).map(x => x.date).filter(x => x).sort()[0];
+                    let ret = {
+                        page: origStartPage,
+                        ok: true,
+                        date: +date,
+                        externalLinks: externalLinks.size,
+                        // count the Google fonts that are used on all the pages
+                        fonts: usedGoogleFonts.size,
+                        googleFonts: usedGoogleFonts.size > 0,
+                        words: totalNavWords + totalFooterWords,
+                        wordsPerPage: totalNavWords + totalFooterWords,
+                    };
+                    // sum up the number of items for those properties
+                    for (let prop of [
+                        "htmlComments",
+                        "cssComments",
+                        "jsComments",
+                        "fonts",
+                        "customFonts",
+                        "size",
+                        "htmlFiles",
+                        "cssFiles",
+                        "jsFiles",
+                        "files",
+                        "youtubeVideos",
+                        "invalidLinks",
+                        "words",
+                    ]) {
+                        ret[prop] = Object.values(files).map(x => x[prop]).reduce((a, b) => (a || 0) + (b || 0), ret[prop] || 0);
+                    }
+                    // average up the number of items for those properties
+                    for (let prop of ["wordsPerPage"]) {
+                        let n = 0;
+                        let toAdd = Object.values(files).map(x => x[prop]).reduce((a, b) => {
+                            if (b == null)
+                                return a;
+                            n++;
+                            return a + b;
+                        }, 0);
+                        if (n)
+                            toAdd /= n;
+                        ret[prop] = (ret[prop] || 0) + toAdd;
+                    }
+                    // check if at least one file fulfills the property for those properties
+                    for (let prop of ["bigFiles", "firstPerson", "namePresent"]) {
+                        ret[prop] = Object.values(files).some(x => x[prop]);
+                    }
+                    opener.postMessage(ret, "*");
                 }
-                // check for the oldest file ≈ the website creation date
-                let date = Object.values(files).map(x => x.date).filter(x => x).sort()[0];
-                let ret = {
-                    page: origStartPage,
-                    ok: true,
-                    date: +date,
-                    externalLinks: externalLinks.size,
-                    fonts: usedGoogleFonts.size,  // count the Google fonts
-                    googleFonts: usedGoogleFonts.size > 0,
-                };
-                // sum up the number of items for those properties
-                for (let prop of [
-                    "htmlComments",
-                    "cssComments",
-                    "jsComments",
-                    "fonts",
-                    "customFonts",
-                    "size",
-                    "htmlFiles",
-                    "cssFiles",
-                    "jsFiles",
-                    "files",
-                    "youtubeVideos",
-                    "invalidLinks",
-                ]) {
-                    ret[prop] = Object.values(files).map(x => x[prop]).reduce((a, b) => (a || 0) + (b || 0), ret[prop] || 0);
-                }
-                // check if at least one file fulfills the property for those properties
-                for (let prop of ["bigFiles", "firstPerson"]) {
-                    ret[prop] = Object.values(files).some(x => x[prop]);
-                }
-                opener.postMessage(ret, "*");
-            }));
+            }).map(promise => promise.catch(error => opener.postMessage({error}, "*"))));
             // wait 1 second, so that the last messages are received
             await new Promise(resolve => setTimeout(resolve, 1000));
             // ask for the window to be closed
