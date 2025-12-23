@@ -210,13 +210,14 @@ def main(argv=None) -> int:
 
         # Build filter_complex
         filter_complex = (
-            f"[0:v]drawtext=fontfile='{str(font_path).replace(SINGLE_QUOTE, SINGLE_QUOTE_ESCAPED)}':text='{french_date.replace(SINGLE_QUOTE, SINGLE_QUOTE_ESCAPED)}':fontcolor=white:fontsize=96:x=(w-text_w)/2:y=(h-text_h)/2[text]; "
+            f"[0:v]fps=25,drawtext=fontfile='{str(font_path).replace(SINGLE_QUOTE, SINGLE_QUOTE_ESCAPED)}':text='{french_date.replace(SINGLE_QUOTE, SINGLE_QUOTE_ESCAPED)}':fontcolor=white:fontsize=96:x=(w-text_w)/2:y=(h-text_h)/2[text]; "
             "[text]split[text1][text2]; "
-            "[text1]format=rgba,fade=t=out:st=0:d=1:alpha=1[fade]; "
-            "[spedup][fade]overlay[transition]; "
-            "[1:v]setpts=PTS/10,trim=start=1,setpts=PTS-STARTPTS[spedup_without_1s]; "
-            "[2:v]setpts=PTS/10,setpts=PTS-STARTPTS[spedup]; "
-            "[text2][transition][spedup_without_1s]concat=n=3:v=1:a=0[v]; "
+            "[text2]format=rgba,fade=t=out:st=0:d=1:alpha=1[faded_text]; "
+            "[1:v]setpts=PTS/10,trim=start=1,setpts=PTS-STARTPTS,fps=25[first_segment]; "
+            "[first_segment][faded_text]overlay[transition]; "
+            "[2:v]setpts=PTS/10,setpts=PTS-STARTPTS,fps=25[other_segments]; "
+            "[text1][transition][other_segments]concat=n=3:v=1:a=0[v]; "
+            "[v]format=yuv420p[vout]; "
         )
 
         if local_audios:
@@ -232,16 +233,24 @@ def main(argv=None) -> int:
             "-filter_complex",
             filter_complex,
             "-map",
-            "[v]",
+            "[vout]",
             "-map",
             "[a]",
             "-shortest",
+            # For some reason, the Raspberry Pi can't determine the correct length
+            # and doesn't respect -shortest
+            "-t",
+            str(5 + len(local_inputs)),
             "-b:a",
             "96k",
             "-b:v",
             "1200k",
             "-pix_fmt",
             "yuv420p",
+            "-r",
+            "25",
+            "-movflags",
+            "+faststart",
             str(local_output),
         ]
 
@@ -253,7 +262,7 @@ def main(argv=None) -> int:
 
         # Rename input directory to add _ok suffix if date is before today
         today = date.today()
-        if date_obj < today:
+        if date_obj < today and not args.redo:
             old_dir = input_dir
             new_dir = input_dir + "_ok"
             try:
